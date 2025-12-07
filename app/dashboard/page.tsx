@@ -6,6 +6,8 @@ import RecentActivity from "@/components/dashboard/recent-activity"
 import RevenueOverview from "@/components/dashboard/financial/revenue-overview"
 import BusinessModelCalculator from "@/components/dashboard/financial/business-model-calculator"
 import MarketAnalysis from "@/components/dashboard/financial/market-analysis"
+import ManeuverModal from "@/components/dashboard/maneuver-modal"
+import InsuranceRiskWidget from "@/components/dashboard/insurance-risk-widget"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -147,6 +149,12 @@ export default async function DashboardPage() {
           {/* Live Satellite Map - Takes 2 columns */}
           <div className="lg:col-span-2 space-y-6">
             <LiveSatelliteMap />
+            
+            {/* Enterprise Features - AI Maneuver & Insurance */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <ManeuverModal />
+              <InsuranceRiskWidget />
+            </div>
             
             {/* Financial Overview Section */}
             <div className="grid md:grid-cols-2 gap-6">
