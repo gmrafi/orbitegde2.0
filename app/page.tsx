@@ -84,6 +84,106 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Comprehensive LEO Solutions - Core Features */}
+      <section id="features" className="py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-space-grotesk">Comprehensive LEO Solutions</h2>
+            <p className="text-xl text-gray-600">
+              Everything you need to manage and optimize your Low Earth Orbit operations
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Link href="/dashboard/satellites">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
+                    <Satellite className="w-6 h-6 text-[#4e6aff]" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">Real-time Monitoring</CardTitle>
+                  <CardDescription>
+                    Track satellite positions, orbital parameters, and health status using NASA TLE data and advanced
+                    algorithms
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/compliance">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
+                    <Shield className="w-6 h-6 text-[#4e6aff]" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">Risk Analysis</CardTitle>
+                  <CardDescription>
+                    Debris collision prediction, ISO 24113 compliance monitoring, and automated risk assessment reports
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/analytics">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
+                    <TrendingUp className="w-6 h-6 text-[#4e6aff]" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">Financial Analytics</CardTitle>
+                  <CardDescription>
+                    Business model optimization, ROI projections, and market analysis for sustainable LEO operations
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/map">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
+                    <Globe className="w-6 h-6 text-[#4e6aff]" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">Global Coverage</CardTitle>
+                  <CardDescription>
+                    Worldwide satellite tracking with support for commercial space stations like Axiom and Starlab
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/analytics">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
+                    <Zap className="w-6 h-6 text-[#4e6aff]" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">Microgravity Simulation</CardTitle>
+                  <CardDescription>
+                    Advanced physics modeling for LEO environment analysis and mission planning optimization
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/chat">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
+                    <Users className="w-6 h-6 text-[#4e6aff]" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">Team Collaboration</CardTitle>
+                  <CardDescription>
+                    Multi-user dashboards, role-based access, and integrated communication tools for space operations
+                    teams
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Customer Segmentation Section - NEW */}
       <section id="customers" className="py-20 bg-white">
         <div className="container mx-auto px-4">
