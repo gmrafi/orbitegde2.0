@@ -19,7 +19,7 @@ export default function UniversalHeader({ variant = "light" }: UniversalHeaderPr
   const hoverClass = isDark ? "hover:text-[#4e6aff]" : "hover:text-[#4e6aff]"
 
   return (
-    <header className={`border-b ${bgClass} backdrop-blur-sm sticky top-0 z-50 shadow-sm`}>
+    <header className={`border-b ${bgClass} backdrop-blur-sm shadow-sm`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">

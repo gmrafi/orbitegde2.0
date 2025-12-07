@@ -11,7 +11,7 @@ import InsuranceRiskWidget from "@/components/dashboard/insurance-risk-widget"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { BarChart3, TrendingUp, DollarSign, Satellite as SatelliteIcon, Globe, Zap, Users, Activity, Radio, Lock } from "lucide-react"
+import { BarChart3, TrendingUp, DollarSign, Satellite as SatelliteIcon, Globe, Zap, Users, Activity, Radio, Lock, MessageSquare, Rocket, Code, Shield } from "lucide-react"
 import Link from "next/link"
 
 export default async function DashboardPage() {
@@ -153,6 +153,70 @@ export default async function DashboardPage() {
                   <div>
                     <CardTitle className="text-lg">Command Center</CardTitle>
                     <p className="text-sm text-gray-600">Enterprise dashboard</p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/dashboard/chat">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-pink-50 to-pink-100 hover:from-pink-100 hover:to-pink-200">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center">
+                    <MessageSquare className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">OrbitAI Assistant</CardTitle>
+                    <p className="text-sm text-gray-600">NLP chatbot</p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/dashboard/launch-optimizer">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-orange-50 to-red-100 hover:from-orange-100 hover:to-red-200">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+                    <Rocket className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">Launch Optimizer</CardTitle>
+                    <p className="text-sm text-gray-600">AI launch windows</p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/dashboard/developer">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+                    <Code className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">Developer Portal</CardTitle>
+                    <p className="text-sm text-gray-600">API key management</p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/dashboard/users">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-indigo-50 to-indigo-100 hover:from-indigo-100 hover:to-indigo-200">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">User Management</CardTitle>
+                    <p className="text-sm text-gray-600">RBAC & permissions</p>
                   </div>
                 </div>
               </CardHeader>

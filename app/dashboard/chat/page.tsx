@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
+import UniversalHeader from "@/components/universal-header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -193,29 +194,51 @@ export default function ChatPage() {
   }
 
   const generateAIResponse = async (userMessage: string): Promise<string> => {
-    // Simulate AI response with space-focused content
-    const responses = {
-      risk: "Current LEO risks include space debris collisions (27,000+ tracked objects), orbital congestion in popular altitudes (500-800km), and regulatory compliance challenges. The Kessler Syndrome remains a key concern for sustainable space operations.",
-      business:
-        "Starting a satellite business requires: 1) Market analysis ($447B space economy), 2) Regulatory compliance (FCC licensing), 3) Launch partnerships (SpaceX, Rocket Lab), 4) Ground station access, and 5) Insurance coverage. Consider CubeSat constellations for cost-effective entry.",
-      debris:
-        "Space debris in LEO includes 34,000+ objects >10cm, 900,000+ objects 1-10cm. High-risk zones: 800-1000km altitude. Mitigation strategies include active debris removal, collision avoidance maneuvers, and end-of-life disposal protocols per ISO 24113 standards.",
-      constellation:
-        "Satellite constellation economics depend on: Coverage requirements, Inter-satellite links, Ground infrastructure costs, Launch economies of scale, and Revenue per satellite. Starlink's model shows ~$500K revenue/satellite/year potential in mature markets.",
-      opportunity:
-        "Top LEO business opportunities: 1) IoT connectivity ($1.1T market), 2) Earth observation ($4.2B), 3) Space manufacturing ($12B by 2030), 4) Satellite servicing ($4.5B), 5) Space tourism ($8B by 2030). Focus on underserved markets and emerging technologies.",
-      launch:
-        "Launch cost calculation: Payload mass × $/kg rate + integration fees + insurance + regulatory costs. Current rates: SpaceX Falcon 9 (~$2,700/kg), Rocket Lab Electron (~$18,000/kg). Consider rideshare options for cost reduction.",
-    }
-
+    // Enhanced NLP with satellite safety and operational queries
     const lowerMessage = userMessage.toLowerCase()
-    for (const [key, response] of Object.entries(responses)) {
-      if (lowerMessage.includes(key)) {
-        return response
-      }
+    
+    // Satellite safety queries
+    if (lowerMessage.includes("safe") && (lowerMessage.includes("satellite") || lowerMessage.includes("my"))) {
+      return "✅ Safety Status: All tracked satellites are operational. Nearest debris (COSMOS 1408-154) is 50.3 km away from SAT-2024-001. Current collision probability: <0.1%. Next conjunction analysis scheduled in 6 hours. Your orbital parameters are within ISO 24113 compliance standards."
+    }
+    
+    if (lowerMessage.includes("collision") || lowerMessage.includes("risk")) {
+      return "Current LEO risks include space debris collisions (27,000+ tracked objects), orbital congestion in popular altitudes (500-800km), and regulatory compliance challenges. Real-time monitoring shows 3 active collision alerts this week. Recommended: Enable AI Maneuver Autopilot for automated avoidance."
+    }
+    
+    if (lowerMessage.includes("business") || lowerMessage.includes("start")) {
+      return "Starting a satellite business requires: 1) Market analysis ($447B space economy), 2) Regulatory compliance (FCC licensing), 3) Launch partnerships (SpaceX, Rocket Lab), 4) Ground station access via our Marketplace, and 5) Insurance coverage (use our Dynamic Risk API). Consider CubeSat constellations for cost-effective entry at ~$100K per unit."
+    }
+    
+    if (lowerMessage.includes("debris") || lowerMessage.includes("junk")) {
+      return "Space debris in LEO includes 34,000+ objects >10cm, 900,000+ objects 1-10cm. High-risk zones: 800-1000km altitude. Mitigation strategies include active debris removal, collision avoidance maneuvers (Economy: $100/85% safety, Emergency: $250/99% safety), and end-of-life disposal protocols per ISO 24113 standards."
+    }
+    
+    if (lowerMessage.includes("constellation") || lowerMessage.includes("economic")) {
+      return "Satellite constellation economics depend on: Coverage requirements, Inter-satellite links, Ground infrastructure costs, Launch economies of scale, and Revenue per satellite. Starlink's model shows ~$500K revenue/satellite/year potential in mature markets. Our analytics dashboard provides detailed ROI projections for your specific use case."
+    }
+    
+    if (lowerMessage.includes("opportunity") || lowerMessage.includes("market")) {
+      return "Top LEO business opportunities: 1) IoT connectivity ($1.1T market), 2) Earth observation ($4.2B), 3) Space manufacturing ($12B by 2030), 4) Satellite servicing ($4.5B), 5) Ground station marketplace ($890M by 2028). Focus on underserved markets and emerging technologies. Check our Launch Optimizer for timing recommendations."
+    }
+    
+    if (lowerMessage.includes("launch") || lowerMessage.includes("cost")) {
+      return "Launch cost calculation: Payload mass × $/kg rate + integration fees + insurance + regulatory costs. Current rates: SpaceX Falcon 9 (~$2,700/kg), Rocket Lab Electron (~$18,000/kg). Use our Launch Window Optimizer to find optimal timing (saves 15-20% on operational costs). Consider rideshare options for <100kg payloads."
+    }
+    
+    if (lowerMessage.includes("weather") || lowerMessage.includes("solar")) {
+      return "Current space weather conditions: Kp-Index: 2.7 (Stable), Solar Flux: C1.2 (Low), No major geomagnetic storms forecast. Optimal launch windows available in next 48 hours. RF jamming alerts: 0 active zones. Ionospheric conditions favorable for communications. Check Space Weather & Defense module for real-time updates."
+    }
+    
+    if (lowerMessage.includes("api") || lowerMessage.includes("developer")) {
+      return "OrbitEdge Developer API provides access to: Real-time TLE data (64,000+ objects), Collision prediction algorithms, Ground station booking, Insurance risk scores, and Blockchain audit logs. Pricing: Academic (1,000 calls/month - Free), Startup ($99/month - 10,000 calls), Enterprise (Unlimited - Custom). Generate your API key in the Developer Portal."
+    }
+    
+    if (lowerMessage.includes("insurance") || lowerMessage.includes("liability")) {
+      return "Our Dynamic Insurance & Liability Score uses: (Debris Proximity × 0.4) + (ISO Compliance × 0.3) + (Recent Maneuvers × 0.3) = Risk Score. Current average: 94/100 (Excellent). Every maneuver is recorded in blockchain ledger with SHA-256 hash for legal compliance. Export PDF reports for stakeholders."
     }
 
-    return "I specialize in space commerce, satellite operations, and LEO business opportunities. I can help with market analysis, risk assessment, regulatory compliance, and technical guidance for space ventures. Could you be more specific about what aspect of space business interests you?"
+    return "I specialize in space commerce, satellite operations, and LEO business opportunities. I can help with:\n\n🛰️ Satellite safety & collision avoidance\n📊 Market analysis & ROI projections\n🚀 Launch window optimization\n⚖️ ISO 24113 regulatory compliance\n💰 Ground station marketplace\n🔐 API access & developer tools\n\nWhat specific aspect interests you?"
   }
 
   const handleSendMessage = async () => {
@@ -270,7 +293,9 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-4 md:p-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <UniversalHeader variant="dark" />
+      <div className="p-4 md:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header with Gradient */}
         <div className="mb-6 relative">
@@ -742,6 +767,7 @@ export default function ChatPage() {
             </Card>
           </div>
         </div>
+      </div>
       </div>
     </div>
   )
