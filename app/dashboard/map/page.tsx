@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, useCallback } from "react"
-import DashboardHeader from "@/components/dashboard/dashboard-header"
+import UniversalHeader from "@/components/universal-header"
 import { Activity, AlertTriangle, Globe, Map, Pause, Play, Search, Wifi } from "lucide-react"
 
 interface SatelliteData {
@@ -269,7 +269,7 @@ export default function MapPage() {
   
   return (
     <div className="min-h-screen bg-gray-50">
-      <DashboardHeader user={user} />
+      <UniversalHeader variant="dark" />
       <MapPageClient />
     </div>
   )

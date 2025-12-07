@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Satellite, Shield, TrendingUp, Globe, Zap, Users, Rocket, CheckCircle, ArrowRight, Star, DollarSign, Activity, Lock } from "lucide-react"
 import Link from "next/link"
+import UniversalHeader from "@/components/universal-header"
 
 export default async function HomePage() {
   // Demo mode - everyone can access
@@ -10,44 +11,7 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
-      {/* Header */}
-      <header className="border-b border-gray-100 bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#4e6aff] to-[#6d5bff] rounded-lg flex items-center justify-center shadow-lg">
-                <Satellite className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] bg-clip-text text-transparent font-space-grotesk">OrbitEdge</h1>
-                <p className="text-xs text-gray-600">The Operating System for Low Earth Orbit</p>
-              </div>
-            </div>
-            <nav className="flex items-center gap-6">
-              <div className="hidden md:flex items-center gap-6">
-                <Link href="#features" className="text-gray-600 hover:text-[#4e6aff] transition-colors font-medium">
-                  Features
-                </Link>
-                <Link href="#customers" className="text-gray-600 hover:text-[#4e6aff] transition-colors font-medium">
-                  Solutions
-                </Link>
-                <Link href="#pricing" className="text-gray-600 hover:text-[#4e6aff] transition-colors font-medium">
-                  Pricing
-                </Link>
-                <Link href="/dashboard/map" className="text-gray-600 hover:text-[#4e6aff] transition-colors font-medium">
-                  Live Map
-                </Link>
-              </div>
-              <Link href="/dashboard">
-                <Button className="bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] hover:from-[#3d59ef] hover:to-[#5d4bef] text-white shadow-lg">
-                  Launch Dashboard
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <UniversalHeader variant="light" />
 
       {/* Hero Section */}
       <section className="py-20 px-4">
@@ -80,6 +44,22 @@ export default async function HomePage() {
                 Explore Features
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted by Innovators - Social Proof */}
+      <section className="py-12 bg-white border-y border-gray-100">
+        <div className="container mx-auto px-4">
+          <p className="text-center text-sm text-gray-600 mb-6 font-semibold uppercase tracking-wide">
+            Trusted by Space Industry Innovators
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-60">
+            <div className="text-3xl font-bold text-gray-400">NASA</div>
+            <div className="text-3xl font-bold text-gray-400">Spire</div>
+            <div className="text-3xl font-bold text-gray-400">Planet</div>
+            <div className="text-3xl font-bold text-gray-400">ISRO</div>
+            <div className="text-3xl font-bold text-gray-400">ESA</div>
           </div>
         </div>
       </section>
@@ -643,6 +623,101 @@ export default async function HomePage() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* World-Class Team Section */}
+      <section id="team" className="py-20 px-4 bg-gradient-to-b from-slate-50 to-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-[#4e6aff]/10 text-[#4e6aff] border-[#4e6aff]/20">
+              MEET THE TEAM
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Built by NASA Space Apps Global Nominees
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              A passionate team combining space technology with business innovation
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all group">
+              <CardContent className="pt-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#4e6aff] to-[#6d5bff] flex items-center justify-center text-white text-3xl font-bold">
+                  MR
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-1">Md Golam Mubasshir Rafi</h3>
+                <p className="text-sm text-[#4e6aff] font-semibold mb-2">Lead Architect</p>
+                <p className="text-sm text-gray-600 mb-4">Full-stack developer & space tech enthusiast</p>
+                <div className="flex items-center justify-center gap-2">
+                  <Badge variant="outline" className="text-xs">TypeScript</Badge>
+                  <Badge variant="outline" className="text-xs">Next.js</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all group">
+              <CardContent className="pt-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold">
+                  MP
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-1">Mashrura Meshkat Punno</h3>
+                <p className="text-sm text-[#4e6aff] font-semibold mb-2">Data Analyst</p>
+                <p className="text-sm text-gray-600 mb-4">Financial modeling & analytics expert</p>
+                <div className="flex items-center justify-center gap-2">
+                  <Badge variant="outline" className="text-xs">Analytics</Badge>
+                  <Badge variant="outline" className="text-xs">Python</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all group">
+              <CardContent className="pt-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-3xl font-bold">
+                  AR
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-1">Al Razi</h3>
+                <p className="text-sm text-[#4e6aff] font-semibold mb-2">Business Strategist</p>
+                <p className="text-sm text-gray-600 mb-4">Market analysis & growth specialist</p>
+                <div className="flex items-center justify-center gap-2">
+                  <Badge variant="outline" className="text-xs">Strategy</Badge>
+                  <Badge variant="outline" className="text-xs">Research</Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all group">
+              <CardContent className="pt-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white text-3xl font-bold">
+                  RA
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-1">Rukaiya Binte Amin</h3>
+                <p className="text-sm text-[#4e6aff] font-semibold mb-2">Research Lead</p>
+                <p className="text-sm text-gray-600 mb-4">Space policy & compliance researcher</p>
+                <div className="flex items-center justify-center gap-2">
+                  <Badge variant="outline" className="text-xs">Research</Badge>
+                  <Badge variant="outline" className="text-xs">Policy</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Card className="border-2 border-[#4e6aff]/20 bg-gradient-to-r from-[#4e6aff]/5 to-transparent">
+              <CardContent className="py-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Achievement</h3>
+                <p className="text-gray-600 mb-6">
+                  Global Nominees at NASA Space Apps Challenge 2025 - Representing Bangladesh in the space innovation ecosystem
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                  <Badge className="bg-[#4e6aff] text-white px-4 py-2">NASA Space Apps 2025</Badge>
+                  <Badge className="bg-emerald-500 text-white px-4 py-2">Global Nominee</Badge>
+                  <Badge className="bg-purple-500 text-white px-4 py-2">Army IBA Sylhet</Badge>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

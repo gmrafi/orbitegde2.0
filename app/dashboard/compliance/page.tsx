@@ -1,4 +1,4 @@
-import DashboardHeader from "@/components/dashboard/dashboard-header"
+import UniversalHeader from "@/components/universal-header"
 import ComplianceOverview from "@/components/dashboard/compliance/compliance-overview"
 import RiskMatrix from "@/components/dashboard/compliance/risk-matrix"
 import ComplianceReports from "@/components/dashboard/compliance/compliance-reports"
@@ -14,7 +14,7 @@ export default async function CompliancePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <DashboardHeader user={user} />
+      <UniversalHeader variant="dark" />
 
       <main className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Page Header */}

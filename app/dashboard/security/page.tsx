@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import UniversalHeader from "@/components/universal-header"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -125,7 +126,9 @@ export default function SecurityPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white p-6">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <UniversalHeader variant="dark" />
+      <div className="p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -312,6 +315,7 @@ export default function SecurityPage() {
             </div>
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   )

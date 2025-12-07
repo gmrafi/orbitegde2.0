@@ -1,4 +1,4 @@
-import DashboardHeader from "@/components/dashboard/dashboard-header"
+import UniversalHeader from "@/components/universal-header"
 import RevenueOverview from "@/components/dashboard/financial/revenue-overview"
 import BusinessModelCalculator from "@/components/dashboard/financial/business-model-calculator"
 import MarketAnalysis from "@/components/dashboard/financial/market-analysis"
@@ -21,7 +21,7 @@ export default async function AnalyticsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <DashboardHeader user={user} />
+      <UniversalHeader variant="dark" />
 
       <main className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Page Header */}

@@ -1,4 +1,4 @@
-import DashboardHeader from "@/components/dashboard/dashboard-header"
+import UniversalHeader from "@/components/universal-header"
 import SatelliteOverview from "@/components/dashboard/satellite-overview"
 import LiveSatelliteMap from "@/components/dashboard/live-satellite-map"
 import RiskAlerts from "@/components/dashboard/risk-alerts"
@@ -23,7 +23,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <DashboardHeader user={user} />
+      <UniversalHeader variant="dark" />
 
       <main className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Welcome Section */}
@@ -137,6 +137,22 @@ export default async function DashboardPage() {
                   <div>
                     <CardTitle className="text-lg">Security</CardTitle>
                     <p className="text-sm text-gray-600">Blockchain audit log</p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/dashboard/command">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-violet-50 to-violet-100 hover:from-violet-100 hover:to-violet-200">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-violet-500 rounded-lg flex items-center justify-center">
+                    <Zap className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">Command Center</CardTitle>
+                    <p className="text-sm text-gray-600">Enterprise dashboard</p>
                   </div>
                 </div>
               </CardHeader>
