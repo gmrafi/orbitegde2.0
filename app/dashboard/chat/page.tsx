@@ -376,7 +376,7 @@ export default function ChatPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Chat Interface */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-9">
             <Card className="flex flex-col bg-white/80 backdrop-blur-xl border-white/20 shadow-2xl overflow-hidden" style={{height: 'calc(100vh - 180px)', minHeight: '700px'}}>
               <CardHeader className="border-b bg-gradient-to-r from-blue-50 to-purple-50 border-blue-100 flex-shrink-0">
                 <CardTitle className="flex items-center gap-2">
@@ -422,7 +422,7 @@ export default function ChatPage() {
                             }`}
                           >
                             <div className="flex items-start justify-between gap-2">
-                              <p className={`text-[15px] leading-relaxed flex-1 ${message.sender === "ai" ? "text-gray-700" : ""} whitespace-pre-line`}>
+                              <p className={`text-sm leading-relaxed flex-1 ${message.sender === "ai" ? "text-gray-700" : ""} whitespace-pre-line`}>
                                 {message.content}
                               </p>
                               {message.category && (
@@ -619,7 +619,7 @@ export default function ChatPage() {
           </div>
 
           {/* Profile Sidebar */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <div className="overflow-y-auto space-y-6" style={{height: 'calc(100vh - 180px)', minHeight: '700px'}}>
             {/* Profile Card */}
             <Card className="bg-white/80 backdrop-blur-xl border-white/20 shadow-xl overflow-hidden">
