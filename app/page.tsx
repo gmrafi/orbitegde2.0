@@ -49,61 +49,37 @@ export default async function HomePage() {
         </div>
       </header>
 
-      {/* Hero Section - Enterprise Grade */}
-      <section className="relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
-        <div className="absolute top-20 right-20 w-96 h-96 bg-[#4e6aff]/10 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#6d5bff]/10 rounded-full blur-3xl -z-10" />
-        
-        <div className="container mx-auto px-4 py-20 md:py-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-[#4e6aff]/10 text-[#4e6aff] border-[#4e6aff]/20 px-4 py-1">
-              <Star className="w-3 h-3 mr-2 fill-[#4e6aff]" />
-              Trusted by 500+ Satellite Operators Worldwide
-            </Badge>
-            
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              OrbitEdge: The<br />
-              <span className="bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] bg-clip-text text-transparent">
-                Operating System
-              </span><br />
-              for Low Earth Orbit
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Automated Collision Avoidance • Ground Station Marketplace • Dynamic Insurance Risk Scoring
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <Link href="/dashboard">
-                <Button size="lg" className="bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] hover:from-[#3d59ef] hover:to-[#5d4bef] text-white px-8 py-6 text-lg shadow-xl">
-                  Start Free Trial
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/dashboard/map">
-                <Button size="lg" variant="outline" className="border-2 border-[#4e6aff] text-[#4e6aff] hover:bg-[#4e6aff]/5 px-8 py-6 text-lg">
-                  <Globe className="mr-2 h-5 w-5" />
-                  View Live Demo
-                </Button>
-              </Link>
-            </div>
-            
-            <div className="flex items-center justify-center gap-8 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-600" />
-                <span>No credit card required</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-600" />
-                <span>14-day free trial</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-600" />
-                <span>Cancel anytime</span>
-              </div>
-            </div>
+      {/* Hero Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto text-center max-w-4xl">
+          <Badge className="mb-6 bg-[#4e6aff]/10 text-[#4e6aff] border-[#4e6aff]/20">
+            AIBA SpaceWeb (Sylhet) - NASA Space Apps Challenge 2025
+          </Badge>
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-space-grotesk leading-tight">
+            Satellite Inspection-as-a-Service for{" "}
+            <span className="text-[#4e6aff]">Sustainable Low Earth Orbit (LEO)</span>
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            Real-time satellite monitoring, risk analysis, and compliance solutions for the $447B global space economy.
+            Powered by NASA open data and advanced analytics.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/dashboard">
+              <Button size="lg" className="bg-[#4e6aff] hover:bg-[#3d54e6] text-white px-8 py-3 transform hover:scale-105 transition-all duration-200">
+                <Rocket className="w-5 h-5 mr-2" />
+                Launch Dashboard
+              </Button>
+            </Link>
+            <Link href="/dashboard/analytics">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-[#4e6aff] text-[#4e6aff] hover:bg-[#4e6aff] hover:text-white px-8 py-3 bg-transparent transform hover:scale-105 transition-all duration-200"
+              >
+                <Globe className="w-5 h-5 mr-2" />
+                Explore Features
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
