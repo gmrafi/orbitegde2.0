@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Satellite, Shield, TrendingUp, Globe, Zap, Users, Rocket, CheckCircle, ArrowRight, Star, DollarSign, Activity, Lock } from "lucide-react"
 import Link from "next/link"
 import UniversalHeader from "@/components/universal-header"
+import Image from "next/image"
 
 export default async function HomePage() {
   // Demo mode - everyone can access
@@ -17,16 +18,28 @@ export default async function HomePage() {
       <section className="py-20 px-4">
         <div className="container mx-auto text-center max-w-4xl">
           <Badge className="mb-6 bg-[#4e6aff]/10 text-[#4e6aff] border-[#4e6aff]/20">
-            AIBA SpaceWeb (Sylhet) - NASA Space Apps Challenge 2025
+            🏆 Evolution of the NASA Space Apps 2025 Global Nominee Project
           </Badge>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-space-grotesk leading-tight">
-            Satellite Inspection-as-a-Service for{" "}
-            <span className="text-[#4e6aff]">Sustainable Low Earth Orbit (LEO)</span>
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 font-space-grotesk leading-tight">
+            Satellite Inspection-as-a-Service for <span className="text-[#4e6aff]">Sustainable Low Earth Orbit (LEO)</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Real-time satellite monitoring, risk analysis, and compliance solutions for the $447B global space economy.
-            Powered by NASA open data and advanced analytics.
+          <p className="text-lg text-gray-600 mb-6 leading-relaxed max-w-3xl mx-auto">
+            Real-time satellite monitoring, risk analysis, and compliance solutions for the $447B global space economy. Powered by NASA open data and advanced analytics.
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm text-gray-700">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-[#4e6aff]" />
+              <span>Real-time Tracking</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-[#4e6aff]" />
+              <span>AI Fuel Optimizer</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-[#4e6aff]" />
+              <span>Automated Compliance</span>
+            </div>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/dashboard">
               <Button size="lg" className="bg-[#4e6aff] hover:bg-[#3d54e6] text-white px-8 py-3 transform hover:scale-105 transition-all duration-200">
@@ -34,7 +47,7 @@ export default async function HomePage() {
                 Launch Dashboard
               </Button>
             </Link>
-            <Link href="/dashboard/analytics">
+            <Link href="#features">
               <Button
                 size="lg"
                 variant="outline"
@@ -64,6 +77,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+
+
       {/* Comprehensive LEO Solutions - Core Features */}
       <section id="features" className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
@@ -76,86 +91,182 @@ export default async function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Link href="/dashboard/satellites">
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
                 <CardHeader>
                   <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
                     <Satellite className="w-6 h-6 text-[#4e6aff]" />
                   </div>
-                  <CardTitle className="text-xl font-space-grotesk">Real-time Monitoring</CardTitle>
+                  <CardTitle className="text-xl font-space-grotesk">Real-time Satellite Tracking</CardTitle>
                   <CardDescription>
-                    Track satellite positions, orbital parameters, and health status using NASA TLE data and advanced
-                    algorithms
+                    Track 64,000+ objects with NASA TLE data. Monitor positions, orbital parameters, and collision warnings with SGP4/SDP4 propagation.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/marketplace">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
+                    <Globe className="w-6 h-6 text-[#4e6aff]" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">Ground Station Marketplace</CardTitle>
+                  <CardDescription>
+                    Book downlink slots at 24 stations across 6 continents. S-band, X-band, Ka-band support with instant availability.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/command">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
+                    <Zap className="w-6 h-6 text-[#4e6aff]" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">AI-Powered Fuel Optimizer</CardTitle>
+                  <CardDescription>
+                    Reduce propellant costs by 30% with smart maneuver suggestions. Economy or Emergency modes with delta-V calculations.
                   </CardDescription>
                 </CardHeader>
               </Card>
             </Link>
 
             <Link href="/dashboard/compliance">
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
                 <CardHeader>
                   <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
-                    <Shield className="w-6 h-6 text-[#4e6aff]" />
+                    <CheckCircle className="w-6 h-6 text-[#4e6aff]" />
                   </div>
-                  <CardTitle className="text-xl font-space-grotesk">Risk Analysis</CardTitle>
+                  <CardTitle className="text-xl font-space-grotesk">Automated Compliance Reporting</CardTitle>
                   <CardDescription>
-                    Debris collision prediction, ISO 24113 compliance monitoring, and automated risk assessment reports
+                    Generate ISO 24113 & NASA-STD-8719.14 reports in one click. Automated scoring and regulatory-ready PDF exports.
                   </CardDescription>
                 </CardHeader>
               </Card>
             </Link>
 
-            <Link href="/dashboard/analytics">
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+            <Link href="/dashboard/security">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
                 <CardHeader>
                   <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
-                    <TrendingUp className="w-6 h-6 text-[#4e6aff]" />
+                    <Lock className="w-6 h-6 text-[#4e6aff]" />
                   </div>
-                  <CardTitle className="text-xl font-space-grotesk">Financial Analytics</CardTitle>
+                  <CardTitle className="text-xl font-space-grotesk">Blockchain Liability Ledger</CardTitle>
                   <CardDescription>
-                    Business model optimization, ROI projections, and market analysis for sustainable LEO operations
+                    Immutable audit trails with SHA-256 hash signatures. Every maneuver recorded on-chain for legal proof and insurance.
                   </CardDescription>
                 </CardHeader>
               </Card>
             </Link>
 
             <Link href="/dashboard/map">
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
                 <CardHeader>
                   <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
-                    <Globe className="w-6 h-6 text-[#4e6aff]" />
+                    <Activity className="w-6 h-6 text-[#4e6aff]" />
                   </div>
-                  <CardTitle className="text-xl font-space-grotesk">Global Coverage</CardTitle>
+                  <CardTitle className="text-xl font-space-grotesk">RF Jamming Detection</CardTitle>
                   <CardDescription>
-                    Worldwide satellite tracking with support for commercial space stations like Axiom and Starlab
+                    Real-time RF spectrum analysis to detect GPS spoofing and signal jamming. 30-second automated alerts with geolocation.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Features Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-space-grotesk">Advanced Capabilities</h2>
+            <p className="text-xl text-gray-600">
+              Additional tools and services for comprehensive space operations
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Link href="/dashboard/chat">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <Rocket className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">OrbitAI Assistant</CardTitle>
+                  <CardDescription>
+                    AI-powered chatbot for instant collision risk analysis. Ask "Is my satellite safe?" and get debris proximity alerts.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/launch-optimizer">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <Rocket className="w-6 h-6 text-orange-600" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">Launch Window Optimizer</CardTitle>
+                  <CardDescription>
+                    Optimal launch windows based on space weather, Kp-Index, and orbital traffic. AI-powered timing recommendations.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/developer">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <Activity className="w-6 h-6 text-cyan-600" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">Developer API Portal</CardTitle>
+                  <CardDescription>
+                    RESTful API with three tiers: Academic, Startup, Enterprise. Instant API keys with Python, JavaScript, cURL examples.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/users">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <Users className="w-6 h-6 text-indigo-600" />
+                  </div>
+                  <CardTitle className="text-xl font-space-grotesk">User Management & RBAC</CardTitle>
+                  <CardDescription>
+                    Role-based access with Admin, Operator, and Viewer levels. Granular permissions and team collaboration tools.
                   </CardDescription>
                 </CardHeader>
               </Card>
             </Link>
 
             <Link href="/dashboard/analytics">
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
-                    <Zap className="w-6 h-6 text-[#4e6aff]" />
+                  <div className="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <TrendingUp className="w-6 h-6 text-emerald-600" />
                   </div>
-                  <CardTitle className="text-xl font-space-grotesk">Microgravity Simulation</CardTitle>
+                  <CardTitle className="text-xl font-space-grotesk">Financial Analytics Dashboard</CardTitle>
                   <CardDescription>
-                    Advanced physics modeling for LEO environment analysis and mission planning optimization
+                    Revenue tracking, ROI projections, and break-even analysis. Market intelligence for space operations business.
                   </CardDescription>
                 </CardHeader>
               </Card>
             </Link>
 
-            <Link href="/dashboard/chat">
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+            <Link href="/dashboard/learn">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer h-full">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center mb-4">
-                    <Users className="w-6 h-6 text-[#4e6aff]" />
+                  <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <Shield className="w-6 h-6 text-blue-600" />
                   </div>
-                  <CardTitle className="text-xl font-space-grotesk">Team Collaboration</CardTitle>
+                  <CardTitle className="text-xl font-space-grotesk">Learning & Documentation</CardTitle>
                   <CardDescription>
-                    Multi-user dashboards, role-based access, and integrated communication tools for space operations
-                    teams
+                    Video tutorials, API docs, and best practices. Interactive learning paths for operators and developers.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -175,243 +286,158 @@ export default async function HomePage() {
               Built for Every Space Operator
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From emerging agencies to enterprise insurers, OrbitEdge scales with your mission
+              Focused solutions for operators, agencies, insurers, defense, and research institutions
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* SME Satellite Operators */}
-            <Card className="border-2 hover:border-[#4e6aff] transition-all hover:shadow-xl group">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* SME Satellite Operators - PRIMARY TARGET */}
+            <Card className="border-2 border-[#4e6aff] shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-[#4e6aff] text-white px-3 py-1 rounded-bl-lg text-xs font-semibold">
+                PRIMARY
+              </div>
               <CardHeader>
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#4e6aff] to-[#6d5bff] rounded-lg flex items-center justify-center mb-4 shadow-lg">
                   <Rocket className="w-7 h-7 text-white" />
                 </div>
-                <CardTitle className="text-2xl">SME Satellite Operators</CardTitle>
-                <CardDescription className="text-base">
-                  Reduce operational costs by 30% with AI-powered maneuvers
+                <CardTitle className="text-xl font-space-grotesk mb-2">SME Satellite Operators</CardTitle>
+                <CardDescription>
+                  For constellations requiring automated collision avoidance and fuel optimization
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-gray-700">Automated collision avoidance saves $250K+ annually</span>
+                    <CheckCircle className="w-4 h-4 text-[#4e6aff] mt-0.5 flex-shrink-0" />
+                    <span>Track up to 100 satellites per account</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-gray-700">Real-time TLE tracking for 64,000+ objects</span>
+                    <CheckCircle className="w-4 h-4 text-[#4e6aff] mt-0.5 flex-shrink-0" />
+                    <span>AI maneuver recommendations save 30% fuel costs</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-gray-700">Fuel optimization reduces mission costs by 15%</span>
+                    <CheckCircle className="w-4 h-4 text-[#4e6aff] mt-0.5 flex-shrink-0" />
+                    <span>Ground station marketplace access</span>
                   </li>
                 </ul>
-                <Link href="/dashboard">
-                  <Button className="w-full mt-6 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700">
-                    Start Optimizing
-                  </Button>
-                </Link>
               </CardContent>
             </Card>
 
             {/* Emerging Space Agencies */}
-            <Card className="border-2 border-[#4e6aff] shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-gradient-to-br from-[#4e6aff] to-[#6d5bff] text-white px-4 py-1 rounded-bl-lg text-sm font-semibold">
-                MOST POPULAR
-              </div>
+            <Card className="border-2 hover:border-[#4e6aff] transition-all hover:shadow-xl group">
               <CardHeader>
-                <div className="w-14 h-14 bg-gradient-to-br from-[#4e6aff] to-[#6d5bff] rounded-lg flex items-center justify-center mb-4 shadow-lg">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Globe className="w-7 h-7 text-white" />
                 </div>
-                <CardTitle className="text-2xl">Emerging Space Agencies</CardTitle>
-                <CardDescription className="text-base">
-                  Mission control in a box without the infrastructure cost
+                <CardTitle className="text-xl font-space-grotesk mb-2">Emerging Space Agencies</CardTitle>
+                <CardDescription>
+                  Deploy mission control capabilities instantly without heavy infrastructure investment
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-gray-700">Deploy mission control in 24 hours, not months</span>
+                    <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span>Cloud-based mission control dashboard</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-gray-700">ISO 24113 & NASA-STD 8719.14A compliance built-in</span>
+                    <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span>ISO 24113 & NASA-STD compliance built-in</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-gray-700">90% cheaper than traditional ground systems</span>
+                    <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span>90% cheaper than traditional ground systems</span>
                   </li>
                 </ul>
-                <Link href="/dashboard">
-                  <Button className="w-full mt-6 bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] hover:from-[#3d59ef] hover:to-[#5d4bef]">
-                    Launch Mission Control
-                  </Button>
-                </Link>
               </CardContent>
             </Card>
 
-            {/* Insurers & Traders */}
+            {/* Insurers & Financial Traders */}
             <Card className="border-2 hover:border-[#4e6aff] transition-all hover:shadow-xl group">
               <CardHeader>
                 <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <TrendingUp className="w-7 h-7 text-white" />
                 </div>
-                <CardTitle className="text-2xl">Insurers & Traders</CardTitle>
-                <CardDescription className="text-base">
-                  Real-time orbital risk data APIs for dynamic pricing
+                <CardTitle className="text-xl font-space-grotesk mb-2">Insurers & Financial Traders</CardTitle>
+                <CardDescription>
+                  Leverage real-time orbital risk scores for dynamic underwriting and premium adjustment
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-gray-700">Live risk scores (0-100) updated every 60 seconds</span>
+                    <CheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Risk scores (0-100) updated every 60 seconds</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-gray-700">RESTful APIs with 99.99% uptime SLA</span>
+                    <CheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>RESTful API with 99.99% uptime SLA</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-gray-700">Blockchain-backed audit trails for legal proof</span>
+                    <CheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <span>Blockchain-backed audit trails for claims</span>
                   </li>
                 </ul>
-                <Link href="/dashboard/analytics">
-                  <Button className="w-full mt-6 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700">
-                    Access Risk APIs
-                  </Button>
-                </Link>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
 
-      {/* Enhanced Feature Showcase - NEW */}
-      <section id="features" className="py-20 bg-gradient-to-b from-white to-slate-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#4e6aff]/10 text-[#4e6aff] border-[#4e6aff]/20">
-              PLATFORM CAPABILITIES
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Everything You Need in One Platform
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From real-time monitoring to AI-powered optimization, OrbitEdge delivers enterprise-grade tools
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {/* Existing Feature: Real-Time Monitoring */}
-            <Card className="border-2 hover:border-[#4e6aff] transition-all hover:shadow-lg group">
+            {/* Defense & Intelligence */}
+            <Card className="border-2 hover:border-[#4e6aff] transition-all hover:shadow-xl group">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <Activity className="w-6 h-6 text-white" />
+                <div className="w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Shield className="w-7 h-7 text-white" />
                 </div>
-                <CardTitle className="text-lg">Real-Time Monitoring</CardTitle>
+                <CardTitle className="text-xl font-space-grotesk mb-2">Defense & Intelligence</CardTitle>
+                <CardDescription>
+                  Secure assets with RF interference monitoring and space situational awareness
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600 mb-3">
-                  Track 64,000+ objects with NASA TLE data and SGP4 propagation
-                </p>
-                <Link href="/dashboard/map" className="text-sm text-[#4e6aff] hover:underline flex items-center gap-1">
-                  View Live Map <ArrowRight className="w-3 h-3" />
-                </Link>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+                    <span>Encrypted satellite tracking for classified assets</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+                    <span>RF jamming detection and geolocation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+                    <span>Threat assessment and anomaly alerts</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
 
-            {/* Existing Feature: Automated Compliance */}
-            <Card className="border-2 hover:border-[#4e6aff] transition-all hover:shadow-lg group">
+            {/* Academia & Research */}
+            <Card className="border-2 hover:border-[#4e6aff] transition-all hover:shadow-xl group">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <Shield className="w-6 h-6 text-white" />
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Star className="w-7 h-7 text-white" />
                 </div>
-                <CardTitle className="text-lg">Automated Compliance</CardTitle>
+                <CardTitle className="text-xl font-space-grotesk mb-2">Academia & Research</CardTitle>
+                <CardDescription>
+                  Empowering the next generation with free access to orbital mechanics tools
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600 mb-3">
-                  ISO 24113 & NASA-STD 8719.14A adherence with automated reports
-                </p>
-                <Link href="/dashboard/compliance" className="text-sm text-[#4e6aff] hover:underline flex items-center gap-1">
-                  View Compliance <ArrowRight className="w-3 h-3" />
-                </Link>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                    <span>Free Academic tier for CubeSat tracking</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                    <span>NASA open data access for debris research</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                    <span>Educational resources and tutorials</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
-
-            {/* NEW Feature: Ground Station Marketplace */}
-            <Card className="border-2 border-[#4e6aff] bg-gradient-to-br from-[#4e6aff]/5 to-transparent shadow-lg group">
-              <div className="absolute top-2 right-2">
-                <Badge className="bg-[#4e6aff] text-white text-xs">NEW</Badge>
-              </div>
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-[#4e6aff] to-[#6d5bff] rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg">
-                  <Globe className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-lg">Ground Station Marketplace</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600 mb-3">
-                  Book downlink slots like Airbnb. 500+ global antennas available
-                </p>
-                <Link href="/dashboard/marketplace" className="text-sm text-[#4e6aff] hover:underline flex items-center gap-1 font-semibold">
-                  Browse Stations <ArrowRight className="w-3 h-3" />
-                </Link>
-              </CardContent>
-            </Card>
-
-            {/* NEW Feature: Fuel Optimization AI */}
-            <Card className="border-2 border-[#4e6aff] bg-gradient-to-br from-[#4e6aff]/5 to-transparent shadow-lg group">
-              <div className="absolute top-2 right-2">
-                <Badge className="bg-[#4e6aff] text-white text-xs">NEW</Badge>
-              </div>
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg">
-                  <Zap className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-lg">Fuel Optimization AI</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600 mb-3">
-                  AI recommends cheapest maneuvers. Save $250K+ annually
-                </p>
-                <Link href="/dashboard/map" className="text-sm text-[#4e6aff] hover:underline flex items-center gap-1 font-semibold">
-                  Try AI Optimizer <ArrowRight className="w-3 h-3" />
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Additional Features Grid */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Lock className="w-5 h-5 text-[#4e6aff]" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Blockchain Audit Trails</h4>
-                <p className="text-sm text-gray-600">Immutable logs with SHA-256 hashing for legal compliance</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <DollarSign className="w-5 h-5 text-[#4e6aff]" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Dynamic Insurance Scoring</h4>
-                <p className="text-sm text-gray-600">Real-time risk scores (0-100) for accurate premium pricing</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-[#4e6aff]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <TrendingUp className="w-5 h-5 text-[#4e6aff]" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Financial Analytics</h4>
-                <p className="text-sm text-gray-600">TAM/SAM/SOM, ROI, CLV calculations for $447B market</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -635,71 +661,74 @@ export default async function HomePage() {
               MEET THE TEAM
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Built by NASA Space Apps Global Nominees
+              Built by Team AIBA SpaceWeb
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               A passionate team combining space technology with business innovation
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all group">
               <CardContent className="pt-8 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#4e6aff] to-[#6d5bff] flex items-center justify-center text-white text-3xl font-bold">
-                  MR
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-[#4e6aff]/20 group-hover:ring-[#4e6aff]/40 transition-all">
+                  <Image 
+                    src="/team/rafi.png" 
+                    alt="Md Golam Mubasshir Rafi" 
+                    width={96} 
+                    height={96}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">Md Golam Mubasshir Rafi</h3>
-                <p className="text-sm text-[#4e6aff] font-semibold mb-2">Lead Architect</p>
-                <p className="text-sm text-gray-600 mb-4">Full-stack developer & space tech enthusiast</p>
-                <div className="flex items-center justify-center gap-2">
-                  <Badge variant="outline" className="text-xs">TypeScript</Badge>
-                  <Badge variant="outline" className="text-xs">Next.js</Badge>
-                </div>
+                <h3 className="text-lg font-bold text-gray-900">Md Golam Mubasshir Rafi</h3>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all group">
               <CardContent className="pt-8 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold">
-                  MP
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-purple-500/20 group-hover:ring-purple-500/40 transition-all">
+                  <Image 
+                    src="/team/riya.png" 
+                    alt="Hrydita Binte Razzaque Riya" 
+                    width={96} 
+                    height={96}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">Mashrura Meshkat Punno</h3>
-                <p className="text-sm text-[#4e6aff] font-semibold mb-2">Data Analyst</p>
-                <p className="text-sm text-gray-600 mb-4">Financial modeling & analytics expert</p>
-                <div className="flex items-center justify-center gap-2">
-                  <Badge variant="outline" className="text-xs">Analytics</Badge>
-                  <Badge variant="outline" className="text-xs">Python</Badge>
-                </div>
+                <h3 className="text-lg font-bold text-gray-900">Hrydita Binte Razzaque Riya</h3>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all group">
               <CardContent className="pt-8 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-3xl font-bold">
-                  AR
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-emerald-500/20 group-hover:ring-emerald-500/40 transition-all">
+                  <Image 
+                    src="/team/sumaiya.png" 
+                    alt="Sumaiya Hoque" 
+                    width={96} 
+                    height={96}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">Al Razi</h3>
-                <p className="text-sm text-[#4e6aff] font-semibold mb-2">Business Strategist</p>
-                <p className="text-sm text-gray-600 mb-4">Market analysis & growth specialist</p>
-                <div className="flex items-center justify-center gap-2">
-                  <Badge variant="outline" className="text-xs">Strategy</Badge>
-                  <Badge variant="outline" className="text-xs">Research</Badge>
-                </div>
+                <h3 className="text-lg font-bold text-gray-900">Sumaiya Hoque</h3>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all group">
               <CardContent className="pt-8 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white text-3xl font-bold">
-                  RA
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white text-3xl font-bold ring-4 ring-orange-500/20 group-hover:ring-orange-500/40 transition-all">
+                  SS
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">Rukaiya Binte Amin</h3>
-                <p className="text-sm text-[#4e6aff] font-semibold mb-2">Research Lead</p>
-                <p className="text-sm text-gray-600 mb-4">Space policy & compliance researcher</p>
-                <div className="flex items-center justify-center gap-2">
-                  <Badge variant="outline" className="text-xs">Research</Badge>
-                  <Badge variant="outline" className="text-xs">Policy</Badge>
+                <h3 className="text-lg font-bold text-gray-900">Sanila Subhana</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all group">
+              <CardContent className="pt-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-3xl font-bold ring-4 ring-blue-500/20 group-hover:ring-blue-500/40 transition-all">
+                  MM
                 </div>
+                <h3 className="text-lg font-bold text-gray-900">Minhazul Islam Mahin</h3>
               </CardContent>
             </Card>
           </div>
@@ -918,7 +947,7 @@ export default async function HomePage() {
           <div className="border-t border-gray-800 mt-8 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-400 text-sm">
-                © 2025 OrbitBiZ by AIBA Space Web • Army IBA Sylhet • NASA Space Apps Challenge 2025
+                © 2025 OrbitEdge. Powered by NASA Open Data.
               </p>
               <div className="flex items-center gap-4 text-sm text-gray-400">
                 <span>Learn • Launch • Lead</span>
