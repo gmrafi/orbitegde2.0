@@ -614,7 +614,7 @@ export default function ChatPage() {
 
           {/* Profile Sidebar */}
           <div className="lg:col-span-3">
-            <div className="sticky top-6 overflow-y-auto space-y-6" style={{maxHeight: 'calc(100vh - 200px)'}}>
+            <div className="overflow-y-auto space-y-6" style={{maxHeight: 'calc(100vh - 180px)', height: 'calc(100vh - 180px)'}}>
             {/* Profile Card */}
             <Card className="bg-white/80 backdrop-blur-xl border-white/20 shadow-xl overflow-hidden">
               <CardContent className="p-6">
