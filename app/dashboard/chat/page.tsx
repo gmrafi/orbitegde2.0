@@ -37,12 +37,18 @@ interface Conversation {
 }
 
 const SAMPLE_QUESTIONS = [
-  "What are the current risks in LEO operations?",
-  "How can I start a satellite business?",
-  "What's the debris situation in Low Earth Orbit?",
+  "Is my satellite safe from debris?",
+  "What are current LEO collision risks?",
+  "How do I start a satellite business?",
+  "Calculate launch costs for 50kg payload",
+  "What's the debris situation in LEO?",
   "Explain satellite constellation economics",
-  "What are the best LEO business opportunities?",
-  "How do I calculate satellite launch costs?",
+  "Best LEO business opportunities in 2025?",
+  "How to comply with ISO 24113 standards?",
+  "Ground station marketplace pricing?",
+  "What are space weather conditions now?",
+  "Developer API access and pricing?",
+  "Insurance and liability requirements?",
 ]
 
 const AI_FEATURES = [
@@ -204,11 +210,11 @@ export default function ChatPage() {
     }
     
     if (lowerMessage.includes("collision") || lowerMessage.includes("risk")) {
-      return "Current LEO risks include space debris collisions (27,000+ tracked objects), orbital congestion in popular altitudes (500-800km), and regulatory compliance challenges. Real-time monitoring shows 3 active collision alerts this week. Recommended: Enable AI Maneuver Autopilot for automated avoidance."
+      return "🔴 **Current LEO Risk Assessment:**\n\n**Active Threats:**\n• 27,000+ tracked objects >10cm (USSPACECOM catalog)\n• Orbital congestion peaks at 500-800km altitude (Starlink, OneWeb zones)\n• 3 high-probability conjunctions this week (Pc >1:10,000)\n\n**Risk Breakdown:**\n1. **Debris Collision:** 78% of encounters from fragmentation events\n2. **Regulatory Non-compliance:** FCC requires <25-year deorbit\n3. **RF Interference:** 12 active jamming alerts in Eastern Europe\n\n**Mitigation Recommendations:**\n✅ Enable AI Maneuver Autopilot (automated delta-V calculations)\n✅ Subscribe to real-time conjunction alerts (TCA <48 hours)\n✅ Maintain 5km separation radius minimum (ISO 24113)\n\n**Next Steps:** Review your Risk Dashboard for satellite-specific analysis."
     }
     
     if (lowerMessage.includes("business") || lowerMessage.includes("start")) {
-      return "Starting a satellite business requires: 1) Market analysis ($447B space economy), 2) Regulatory compliance (FCC licensing), 3) Launch partnerships (SpaceX, Rocket Lab), 4) Ground station access via our Marketplace, and 5) Insurance coverage (use our Dynamic Risk API). Consider CubeSat constellations for cost-effective entry at ~$100K per unit."
+      return "🚀 **Starting a Satellite Business - Complete Roadmap:**\n\n**Phase 1: Market Research (Months 1-3)**\n• Total addressable market: $447B space economy (2025)\n• Target segments: IoT connectivity ($1.1T), Earth observation ($4.2B), communications\n• Competitive analysis: Starlink (5,500 satellites), Planet Labs (200+ imaging sats)\n\n**Phase 2: Regulatory Compliance (Months 3-6)**\n• FCC orbital debris mitigation plan submission\n• ITU frequency coordination (S-band, X-band, Ka-band)\n• National licensing requirements (NOAA for remote sensing)\n\n**Phase 3: Technical Development (Months 6-18)**\n• CubeSat constellation: $100K-$500K per unit (3U-6U form factors)\n• Launch partnerships: SpaceX rideshare ($275K for 200kg), Rocket Lab dedicated ($7.5M)\n• Ground station access: OrbitEdge Marketplace (24 stations, $50-$500/pass)\n\n**Phase 4: Financial Planning**\n• Initial capital: $2M-$10M for 10-satellite constellation\n• Insurance: $50K-$200K annually (in-orbit + third-party liability)\n• Break-even: 18-36 months with 70% utilization rate\n\n**OrbitEdge Tools:** Use our Business Model Calculator & ROI Projections dashboard for customized analysis."
     }
     
     if (lowerMessage.includes("debris") || lowerMessage.includes("junk")) {
@@ -219,12 +225,12 @@ export default function ChatPage() {
       return "Satellite constellation economics depend on: Coverage requirements, Inter-satellite links, Ground infrastructure costs, Launch economies of scale, and Revenue per satellite. Starlink's model shows ~$500K revenue/satellite/year potential in mature markets. Our analytics dashboard provides detailed ROI projections for your specific use case."
     }
     
-    if (lowerMessage.includes("opportunity") || lowerMessage.includes("market")) {
-      return "Top LEO business opportunities: 1) IoT connectivity ($1.1T market), 2) Earth observation ($4.2B), 3) Space manufacturing ($12B by 2030), 4) Satellite servicing ($4.5B), 5) Ground station marketplace ($890M by 2028). Focus on underserved markets and emerging technologies. Check our Launch Optimizer for timing recommendations."
+    if (lowerMessage.includes("opportunity") || lowerMessage.includes("market") || lowerMessage.includes("business opportunities")) {
+      return "📊 **Top LEO Business Opportunities - 2025 Market Analysis:**\n\n**1. IoT Connectivity ($1.1T Market)**\n• Asset tracking for shipping, logistics, agriculture\n• Remote monitoring: oil/gas pipelines, environmental sensors\n• Players: Swarm, Myriota, Astrocast (100-1000 satellites needed)\n• Revenue model: $5-$15/device/month, 10M devices = $600M-$1.8B annually\n\n**2. Earth Observation ($4.2B Market)**\n• High-resolution imaging (0.5m-5m resolution)\n• Hyperspectral analysis for agriculture, mining, climate\n• Key players: Planet Labs (200 satellites), Maxar, BlackSky\n• Revenue: $500-$5,000 per image, subscription models ($50K-$500K/year)\n\n**3. Space Manufacturing ($12B by 2030)**\n• Microgravity production: fiber optics, pharmaceuticals, alloys\n• In-space assembly and servicing\n• Early stage, high barriers to entry, massive upside potential\n\n**4. Satellite Servicing ($4.5B Market)**\n• Life extension, refueling, debris removal\n• Northrop Grumman MEV missions (successful demonstrations)\n• Contract values: $10M-$50M per servicing mission\n\n**5. Ground Station Network ($890M by 2028)**\n• Amazon AWS Ground Station, Microsoft Azure Orbital\n• OrbitEdge Marketplace: 24 stations, S/X/Ka-band, $50-$500/pass\n• Revenue share: 60% station owner, 40% platform\n\n**Entry Strategy Recommendations:**\n🎯 **Low-capital:** Start with data analytics/software (no satellites needed)\n🎯 **Medium-capital ($1M-$5M):** CubeSat constellation for IoT/AIS\n🎯 **High-capital ($10M+):** Earth observation or communications constellation\n\n**Use OrbitEdge Tools:** Market Analysis Dashboard, ROI Calculator, Launch Window Optimizer"
     }
     
     if (lowerMessage.includes("launch") || lowerMessage.includes("cost")) {
-      return "Launch cost calculation: Payload mass × $/kg rate + integration fees + insurance + regulatory costs. Current rates: SpaceX Falcon 9 (~$2,700/kg), Rocket Lab Electron (~$18,000/kg). Use our Launch Window Optimizer to find optimal timing (saves 15-20% on operational costs). Consider rideshare options for <100kg payloads."
+      return "💰 **Launch Cost Breakdown - 2025 Rates:**\n\n**SpaceX Falcon 9 (Rideshare)**\n• Base rate: $2,700/kg to SSO (500-600km altitude)\n• 50kg payload: $135,000\n• 200kg payload: $540,000\n• Integration fee: $25,000-$50,000\n• Insurance (launch): 8-12% of payload value\n\n**Rocket Lab Electron (Dedicated)**\n• Base rate: ~$18,000/kg\n• 50kg payload: $900,000\n• 200kg capacity: $3.6M\n• Flexible launch windows, rapid turnaround (monthly cadence)\n\n**Additional Costs:**\n1. **Regulatory Compliance:** $50K-$150K (FCC, NOAA, ITU filings)\n2. **Mission Insurance:** 10-15% of total launch + satellite value\n3. **Launch Campaign:** $100K-$300K (integration, testing, logistics)\n4. **Ground Station Network:** $50-$500 per pass (use our Marketplace)\n\n**Cost Optimization Strategies:**\n✅ Use our Launch Window Optimizer (saves 15-20% on fuel)\n✅ Book rideshare 6-12 months in advance for better rates\n✅ Consider multi-manifest missions for constellation deployments\n\n**Example:** 50kg CubeSat → SpaceX rideshare = $135K + $40K (integration) + $20K (insurance) + $80K (compliance) = **$275K total**"
     }
     
     if (lowerMessage.includes("weather") || lowerMessage.includes("solar")) {
@@ -306,17 +312,17 @@ export default function ChatPage() {
               <div className="flex items-center gap-4">
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl blur-lg opacity-50 animate-pulse"></div>
-                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden ring-4 ring-emerald-200 shadow-lg">
+                  <div className="relative w-24 h-24 rounded-2xl overflow-hidden ring-4 ring-emerald-200 shadow-lg">
                     <Image 
                       src="/team/sumaiya.png" 
                       alt="Sumaiya Hoque - OrbitEdge Team AI Assistant" 
-                      width={80} 
-                      height={80}
+                      width={96} 
+                      height={96}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   {/* Blinking Online Indicator */}
-                  <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-lg animate-pulse"></div>
+                  <div className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white shadow-lg animate-pulse"></div>
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
@@ -370,7 +376,7 @@ export default function ChatPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Chat Interface */}
-          <div className="lg:col-span-9">
+          <div className="lg:col-span-8">
             <Card className="flex flex-col bg-white/80 backdrop-blur-xl border-white/20 shadow-2xl overflow-hidden" style={{height: 'calc(100vh - 180px)', minHeight: '700px'}}>
               <CardHeader className="border-b bg-gradient-to-r from-blue-50 to-purple-50 border-blue-100 flex-shrink-0">
                 <CardTitle className="flex items-center gap-2">
@@ -393,18 +399,18 @@ export default function ChatPage() {
                       >
                         {message.sender === "ai" && (
                           <div className="flex flex-col items-center gap-1">
-                            <Avatar className="h-10 w-10 ring-2 ring-emerald-200 shadow-md">
+                            <Avatar className="h-12 w-12 ring-2 ring-emerald-200 shadow-md">
                               <div className="w-full h-full rounded-full overflow-hidden">
                                 <Image 
                                   src="/team/sumaiya.png" 
                                   alt="Sumaiya Hoque - OrbitEdge Team" 
-                                  width={40} 
-                                  height={40}
+                                  width={48} 
+                                  height={48}
                                   className="w-full h-full object-cover"
                                 />
                               </div>
                             </Avatar>
-                            <span className="text-[10px] text-gray-500 font-medium">Sumaiya</span>
+                            <span className="text-[11px] text-gray-500 font-medium">Sumaiya</span>
                           </div>
                         )}
                         <div className="flex flex-col gap-2 max-w-[90%]">
@@ -416,7 +422,7 @@ export default function ChatPage() {
                             }`}
                           >
                             <div className="flex items-start justify-between gap-2">
-                              <p className={`text-base leading-relaxed flex-1 ${message.sender === "ai" ? "text-gray-700" : ""}`}>
+                              <p className={`text-[15px] leading-relaxed flex-1 ${message.sender === "ai" ? "text-gray-700" : ""} whitespace-pre-line`}>
                                 {message.content}
                               </p>
                               {message.category && (
@@ -488,18 +494,18 @@ export default function ChatPage() {
                     {isLoading && (
                       <div className="flex gap-3 justify-start animate-in fade-in slide-in-from-bottom-4">
                         <div className="flex flex-col items-center gap-1">
-                          <Avatar className="h-10 w-10 ring-2 ring-emerald-200 shadow-md">
+                          <Avatar className="h-12 w-12 ring-2 ring-emerald-200 shadow-md">
                             <div className="w-full h-full rounded-full overflow-hidden">
                               <Image 
                                 src="/team/sumaiya.png" 
                                 alt="Sumaiya Hoque - OrbitEdge Team" 
-                                width={40} 
-                                height={40}
+                                width={48} 
+                                height={48}
                                 className="w-full h-full object-cover"
                               />
                             </div>
                           </Avatar>
-                          <span className="text-[10px] text-gray-500 font-medium">Sumaiya</span>
+                          <span className="text-[11px] text-gray-500 font-medium">Sumaiya</span>
                         </div>
                         <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-lg">
                           <div className="flex gap-1.5">
@@ -613,8 +619,8 @@ export default function ChatPage() {
           </div>
 
           {/* Profile Sidebar */}
-          <div className="lg:col-span-3">
-            <div className="overflow-y-auto space-y-6" style={{maxHeight: 'calc(100vh - 180px)', height: 'calc(100vh - 180px)'}}>
+          <div className="lg:col-span-4">
+            <div className="overflow-y-auto space-y-6" style={{height: 'calc(100vh - 180px)', minHeight: '700px'}}>
             {/* Profile Card */}
             <Card className="bg-white/80 backdrop-blur-xl border-white/20 shadow-xl overflow-hidden">
               <CardContent className="p-6">
