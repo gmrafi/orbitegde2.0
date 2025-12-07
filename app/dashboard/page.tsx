@@ -9,7 +9,7 @@ import MarketAnalysis from "@/components/dashboard/financial/market-analysis"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { BarChart3, TrendingUp, DollarSign, Satellite as SatelliteIcon, Globe, Zap, Users, Activity } from "lucide-react"
+import { BarChart3, TrendingUp, DollarSign, Satellite as SatelliteIcon, Globe, Zap, Users, Activity, Radio, Lock } from "lucide-react"
 import Link from "next/link"
 
 export default async function DashboardPage() {
@@ -44,7 +44,7 @@ export default async function DashboardPage() {
         <SatelliteOverview />
 
         {/* Quick Access Feature Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           <Link href="/dashboard/satellites">
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200">
               <CardHeader className="pb-3">
@@ -103,6 +103,38 @@ export default async function DashboardPage() {
                   <div>
                     <CardTitle className="text-lg">Global Map</CardTitle>
                     <p className="text-sm text-gray-600">Worldwide coverage</p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/dashboard/marketplace">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-cyan-50 to-cyan-100 hover:from-cyan-100 hover:to-cyan-200">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center">
+                    <Radio className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">Marketplace</CardTitle>
+                    <p className="text-sm text-gray-600">Ground station booking</p>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/dashboard/security">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-emerald-50 to-emerald-100 hover:from-emerald-100 hover:to-emerald-200">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
+                    <Lock className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">Security</CardTitle>
+                    <p className="text-sm text-gray-600">Blockchain audit log</p>
                   </div>
                 </div>
               </CardHeader>

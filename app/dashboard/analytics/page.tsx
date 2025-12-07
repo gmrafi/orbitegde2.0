@@ -10,6 +10,7 @@ import CashFlowProjections from "@/components/dashboard/financial/cash-flow-proj
 import ValuationMetrics from "@/components/dashboard/financial/valuation-metrics"
 import MicrogravitySimulator from "@/components/dashboard/manufacturing/microgravity-simulator"
 import SpaceTourismPlanner from "@/components/dashboard/tourism/space-tourism-planner"
+import InsuranceRiskWidget from "@/components/dashboard/insurance-risk-widget"
 
 export default async function AnalyticsPage() {
   // Mock user for demo purposes
@@ -33,6 +34,11 @@ export default async function AnalyticsPage() {
 
         {/* Revenue Overview */}
         <RevenueOverview />
+
+        {/* Insurance Risk Widget - New Enterprise Feature */}
+        <div className="mt-8">
+          <InsuranceRiskWidget />
+        </div>
 
         {/* Main Analytics Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mt-8">
