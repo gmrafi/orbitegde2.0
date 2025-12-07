@@ -6,7 +6,7 @@ import RecentActivity from "@/components/dashboard/recent-activity"
 import RevenueOverview from "@/components/dashboard/financial/revenue-overview"
 import BusinessModelCalculator from "@/components/dashboard/financial/business-model-calculator"
 import MarketAnalysis from "@/components/dashboard/financial/market-analysis"
-import ManeuverModal from "@/components/dashboard/maneuver-modal"
+import ManeuverWidget from "@/components/dashboard/maneuver-widget"
 import InsuranceRiskWidget from "@/components/dashboard/insurance-risk-widget"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -152,7 +152,7 @@ export default async function DashboardPage() {
             
             {/* Enterprise Features - AI Maneuver & Insurance */}
             <div className="grid md:grid-cols-2 gap-6">
-              <ManeuverModal />
+              <ManeuverWidget />
               <InsuranceRiskWidget />
             </div>
             
