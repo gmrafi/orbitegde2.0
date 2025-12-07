@@ -310,9 +310,39 @@ export default function ChatPage() {
           <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-white/20 shadow-xl">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl blur-lg opacity-50 animate-pulse"></div>
-                  <div className="relative w-24 h-24 rounded-2xl overflow-hidden ring-4 ring-emerald-200 shadow-lg">
+                <div className="relative group">
+                  {/* Outer magical glow - multiple layers */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur-2xl opacity-60 animate-pulse"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-emerald-400 via-teal-500 to-cyan-500 rounded-2xl blur-xl opacity-40 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                  
+                  {/* Rotating orbital ring 1 - Fast */}
+                  <div className="absolute inset-0 animate-spin" style={{animationDuration: '3s'}}>
+                    <div className="absolute inset-0 border-2 border-transparent border-t-cyan-400 border-r-blue-400 rounded-full" style={{width: '110px', height: '110px', top: '-7px', left: '-7px'}}></div>
+                  </div>
+                  
+                  {/* Rotating orbital ring 2 - Medium (opposite direction) */}
+                  <div className="absolute inset-0 animate-spin" style={{animationDuration: '4s', animationDirection: 'reverse'}}>
+                    <div className="absolute inset-0 border-2 border-transparent border-b-purple-400 border-l-emerald-400 rounded-full opacity-70" style={{width: '118px', height: '118px', top: '-11px', left: '-11px'}}></div>
+                  </div>
+                  
+                  {/* Rotating orbital ring 3 - Slow */}
+                  <div className="absolute inset-0 animate-spin" style={{animationDuration: '6s'}}>
+                    <div className="absolute inset-0 border border-transparent border-t-teal-300 rounded-full opacity-50" style={{width: '126px', height: '126px', top: '-15px', left: '-15px'}}></div>
+                  </div>
+                  
+                  {/* Orbiting particles - 4 dots rotating around */}
+                  <div className="absolute inset-0 animate-spin" style={{animationDuration: '4s'}}>
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full shadow-lg" style={{boxShadow: '0 0 10px rgba(34, 211, 238, 0.8)'}}></div>
+                  </div>
+                  <div className="absolute inset-0 animate-spin" style={{animationDuration: '4s', animationDelay: '1s'}}>
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full shadow-lg" style={{boxShadow: '0 0 8px rgba(192, 132, 252, 0.8)'}}></div>
+                  </div>
+                  <div className="absolute inset-0 animate-spin" style={{animationDuration: '5s', animationDirection: 'reverse'}}>
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full shadow-lg" style={{boxShadow: '0 0 8px rgba(52, 211, 153, 0.8)'}}></div>
+                  </div>
+                  
+                  {/* Inner glowing border */}
+                  <div className="relative w-24 h-24 rounded-2xl overflow-hidden ring-4 ring-emerald-300 shadow-2xl" style={{boxShadow: '0 0 20px rgba(52, 211, 153, 0.5), 0 0 40px rgba(96, 165, 250, 0.3)'}}>
                     <Image 
                       src="/team/sumaiya.png" 
                       alt="Sumaiya Hoque - OrbitEdge Team AI Assistant" 
@@ -320,20 +350,39 @@ export default function ChatPage() {
                       height={96}
                       className="w-full h-full object-cover"
                     />
+                    {/* Scanning line effect */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/30 to-transparent animate-pulse" style={{animation: 'pulse 2s ease-in-out infinite'}}></div>
                   </div>
-                  {/* Blinking Online Indicator */}
-                  <div className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white shadow-lg animate-pulse"></div>
+                  
+                  {/* AI Power Indicator - Enhanced */}
+                  <div className="absolute -bottom-1 -right-1 flex items-center justify-center">
+                    {/* Outer pulsing glow */}
+                    <div className="absolute w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full opacity-40 animate-ping"></div>
+                    {/* Middle ring */}
+                    <div className="absolute w-6 h-6 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full opacity-60 animate-pulse"></div>
+                    {/* Core indicator */}
+                    <div className="relative w-5 h-5 bg-gradient-to-br from-green-400 via-emerald-500 to-teal-500 rounded-full border-2 border-white shadow-lg flex items-center justify-center" style={{boxShadow: '0 0 15px rgba(52, 211, 153, 0.8)'}}>
+                      <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Sparkle effects */}
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-yellow-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity animate-ping" style={{animationDuration: '1.5s'}}></div>
+                  <div className="absolute bottom-2 left-0 w-2 h-2 bg-cyan-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity animate-ping" style={{animationDuration: '2s', animationDelay: '0.3s'}}></div>
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                       Sumaiya Hoque
                     </h1>
-                    <Badge className="bg-emerald-100 text-emerald-700 text-xs flex items-center gap-1">
-                      <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                      Online
+                    <Badge className="bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-700 text-xs flex items-center gap-1.5 px-2.5 py-1 border border-emerald-300 shadow-lg" style={{boxShadow: '0 0 10px rgba(52, 211, 153, 0.3)'}}>
+                      <div className="relative flex items-center">
+                        <span className="absolute w-3 h-3 bg-green-400 rounded-full animate-ping opacity-75"></span>
+                        <span className="relative inline-block w-2 h-2 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full"></span>
+                      </div>
+                      <span className="font-semibold">AI Online</span>
                     </Badge>
-                    <Badge className="bg-blue-100 text-blue-700 text-xs">OrbitEdge Team</Badge>
+                    <Badge className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-xs border border-blue-300">OrbitEdge Team</Badge>
                   </div>
                   <p className="text-gray-600 font-medium">Space Commerce Expert • Satellite Operations Specialist • AI-Powered Guidance</p>
                 </div>
