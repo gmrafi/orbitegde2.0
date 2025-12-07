@@ -306,22 +306,28 @@ export default function ChatPage() {
               <div className="flex items-center gap-4">
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl blur-lg opacity-50 animate-pulse"></div>
-                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden ring-4 ring-emerald-200 shadow-lg">
+                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden ring-4 ring-emerald-200 shadow-lg">
                     <Image 
                       src="/team/sumaiya.png" 
                       alt="Sumaiya Hoque - OrbitEdge Team AI Assistant" 
-                      width={64} 
-                      height={64}
+                      width={80} 
+                      height={80}
                       className="w-full h-full object-cover"
                     />
                   </div>
+                  {/* Blinking Online Indicator */}
+                  <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-lg animate-pulse"></div>
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                       Sumaiya Hoque
                     </h1>
-                    <Badge className="bg-emerald-100 text-emerald-700 text-xs">OrbitEdge Team</Badge>
+                    <Badge className="bg-emerald-100 text-emerald-700 text-xs flex items-center gap-1">
+                      <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                      Online
+                    </Badge>
+                    <Badge className="bg-blue-100 text-blue-700 text-xs">OrbitEdge Team</Badge>
                   </div>
                   <p className="text-gray-600 font-medium">Space Commerce Expert • Satellite Operations Specialist • AI-Powered Guidance</p>
                 </div>
@@ -607,32 +613,10 @@ export default function ChatPage() {
           </div>
 
           {/* Profile Sidebar */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-3">
+            <div className="sticky top-6 overflow-y-auto space-y-6" style={{maxHeight: 'calc(100vh - 200px)'}}>
             {/* Profile Card */}
             <Card className="bg-white/80 backdrop-blur-xl border-white/20 shadow-xl overflow-hidden">
-              <CardHeader className="bg-gradient-to-r from-emerald-50 to-teal-50 border-b border-emerald-100 text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full blur-lg opacity-50"></div>
-                    <div className="relative w-24 h-24 rounded-full overflow-hidden ring-4 ring-emerald-200 shadow-lg">
-                      <Image 
-                        src="/team/sumaiya.png" 
-                        alt="Sumaiya Hoque" 
-                        width={96} 
-                        height={96}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="absolute bottom-1 right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white"></div>
-                  </div>
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-800">Sumaiya Hoque</CardTitle>
-                <p className="text-sm text-emerald-600 font-medium mt-1">OrbitEdge AI Assistant</p>
-                <Badge className="bg-emerald-100 text-emerald-700 text-xs mt-2 inline-block">
-                  <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-1"></span>
-                  Online
-                </Badge>
-              </CardHeader>
               <CardContent className="p-6">
                 <div className="space-y-4">
                   <div>
@@ -930,6 +914,7 @@ export default function ChatPage() {
                 </Button>
               </CardContent>
             </Card>
+            </div>
           </div>
         </div>
       </div>
