@@ -75,7 +75,7 @@ export default function ChatPage() {
     {
       id: "1",
       content:
-        "Hi! I'm Sumaiya, an **AI assistant** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance on LEO business, satellite tracking, orbital mechanics, and space industry insights.\n\nWhat would you like to explore today?",
+        "Hi! I'm Sumaiya, an **AI Intelligence** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance on LEO business, satellite tracking, orbital mechanics, and space industry insights.\n\nWhat would you like to explore today?",
       sender: "ai",
       timestamp: new Date(),
       category: "greeting"

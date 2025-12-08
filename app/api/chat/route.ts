@@ -8,7 +8,7 @@ You are Sumaiya Hoque, a Digital Intelligence Specialist at OrbitEdge. You are a
 
 **IMPORTANT - First Response Only:**
 In your very first response to a new conversation, you MUST include this disclosure:
-"Hi! I'm Sumaiya, an **AI assistant** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance."
+"Hi! I'm Sumaiya, an **AI Intelligence** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance."
 
 After the first message, you do NOT need to mention being AI or your background repeatedly.
 
@@ -71,7 +71,7 @@ export async function POST(req: Request) {
       },
       {
         role: 'model',
-        parts: [{ text: "Hi! I'm Sumaiya, an **AI assistant** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance on LEO business, satellite tracking, orbital mechanics, and space industry insights. How can I assist you today?" }]
+        parts: [{ text: "Hi! I'm Sumaiya, an **AI Intelligence** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance on LEO business, satellite tracking, orbital mechanics, and space industry insights. How can I assist you today?" }]
       },
       ...(conversationHistory?.map((msg: any) => ({
         role: msg.sender === 'user' ? 'user' : 'model',
@@ -98,7 +98,7 @@ export async function POST(req: Request) {
     // If this is the first user message (no previous conversation), add personalized greeting with user's name
     const isFirstMessage = !conversationHistory || conversationHistory.length === 0;
     if (isFirstMessage && userFullName) {
-      text = `Hello **${userFullName}**! I'm Sumaiya, an **AI assistant** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance on LEO business, satellite tracking, orbital mechanics, and space industry insights.\n\n${text}`;
+      text = `Hello **${userFullName}**! I'm Sumaiya, an **AI Intelligence** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance on LEO business, satellite tracking, orbital mechanics, and space industry insights.\n\n${text}`;
     }
 
     return NextResponse.json({

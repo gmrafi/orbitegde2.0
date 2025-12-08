@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { ClerkProvider } from '@clerk/nextjs'
 import { Inter, Space_Grotesk } from "next/font/google"
+import FloatingAIAssistant from "@/components/floating-ai-assistant"
 import "./globals.css"
 
 const inter = Inter({
@@ -33,6 +34,7 @@ export default function RootLayout({
       <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
         <body className="font-sans" suppressHydrationWarning>
           {children}
+          <FloatingAIAssistant />
         </body>
       </html>
     </ClerkProvider>
