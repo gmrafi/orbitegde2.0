@@ -364,6 +364,39 @@ export default async function DashboardPage() {
           </div>
         </div>
 
+        {/* Pricing & Subscription Section */}
+        <div className="mb-8">
+          <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl p-8 text-white shadow-2xl">
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <Badge className="mb-3 bg-white/20 text-white border-white/30">
+                  💳 Payment Integration
+                </Badge>
+                <h3 className="text-3xl font-bold mb-2">Upgrade Your Plan</h3>
+                <p className="text-blue-100 mb-4 max-w-xl">
+                  Unlock advanced features with our flexible pricing plans. Secure payment powered by Paddle.
+                </p>
+                <Link href="/dashboard/pricing">
+                  <Button 
+                    size="lg" 
+                    className="bg-white text-purple-600 hover:bg-blue-50 font-semibold shadow-lg"
+                  >
+                    <DollarSign className="w-5 h-5 mr-2" />
+                    View Pricing & Subscribe
+                  </Button>
+                </Link>
+              </div>
+              <div className="hidden lg:flex items-center gap-4">
+                <div className="text-right">
+                  <p className="text-5xl font-bold">$49</p>
+                  <p className="text-blue-100">Starting from</p>
+                </div>
+                <Rocket className="w-24 h-24 opacity-20" />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Main Dashboard Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mt-8">
           {/* Live Satellite Map - Takes 2 columns */}
