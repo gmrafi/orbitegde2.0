@@ -103,11 +103,25 @@ export class NASAAPIClient {
         })
 
         if (!response.ok) {
-          throw new Error(`Celestrak API error for ${id}: ${response.status}`)
+          console.warn(`[v0] Celestrak API error for ${id}: ${response.status}`)
+          return null
         }
 
-        const data = await response.json()
-        return data[0] // Celestrak returns array with single element
+        const text = await response.text()
+        
+        // Celestrak returns "No GP data found" as plain text when satellite not found
+        if (text.includes("No GP data found")) {
+          console.warn(`[v0] No GP data found for satellite ${id}`)
+          return null
+        }
+
+        try {
+          const data = JSON.parse(text)
+          return data[0] // Celestrak returns array with single element
+        } catch (parseError) {
+          console.warn(`[v0] Failed to parse response for ${id}:`, text)
+          return null
+        }
       })
 
       const results = await Promise.all(promises)

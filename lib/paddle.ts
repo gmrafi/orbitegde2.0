@@ -55,11 +55,38 @@ export const initializePaddle = () => {
   script.async = true;
   script.onload = () => {
     if ((window as any).Paddle) {
+      // Set environment (sandbox or production)
       (window as any).Paddle.Environment.set(paddleConfig.environment);
+      
+      // Initialize Paddle
       (window as any).Paddle.Initialize({
         token: paddleConfig.clientToken,
+        eventCallback: (event: any) => {
+          console.log('Paddle Event:', event);
+          
+          // Handle different event types
+          switch (event.name) {
+            case 'checkout.loaded':
+              console.log('Checkout loaded successfully');
+              break;
+            case 'checkout.completed':
+              console.log('Payment completed:', event.data);
+              break;
+            case 'checkout.closed':
+              console.log('Checkout closed');
+              break;
+            case 'checkout.error':
+              console.error('Checkout error:', event.error);
+              break;
+          }
+        }
       });
+      
+      console.log('Paddle initialized in', paddleConfig.environment, 'mode');
     }
+  };
+  script.onerror = () => {
+    console.error('Failed to load Paddle.js');
   };
   document.head.appendChild(script);
 };
@@ -72,14 +99,30 @@ export const openPaddleCheckout = (priceId: string, customData?: Record<string, 
   }
 
   (window as any).Paddle.Checkout.open({
-    items: [{ priceId, quantity: 1 }],
-    customData,
+    items: [{ 
+      priceId: priceId, 
+      quantity: 1 
+    }],
+    customData: customData || {},
+    settings: {
+      displayMode: 'overlay',
+      theme: 'light',
+      locale: 'en',
+      allowLogout: false,
+      showAddDiscounts: true,
+    },
     successCallback: (data: any) => {
       console.log('Payment successful:', data);
       // Handle successful payment (e.g., update user subscription, show success message)
+      if (typeof customData?.onSuccess === 'function') {
+        customData.onSuccess(data);
+      }
     },
-    closeCallback: () => {
-      console.log('Checkout closed');
+    closeCallback: (data: any) => {
+      console.log('Checkout closed:', data);
+      if (typeof customData?.onClose === 'function') {
+        customData.onClose(data);
+      }
     },
   });
 };

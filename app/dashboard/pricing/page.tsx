@@ -16,38 +16,86 @@ export default function PricingDemo() {
     script.async = true;
     script.onload = () => {
       if ((window as any).Paddle) {
+        // Set environment to sandbox for testing
         (window as any).Paddle.Environment.set('sandbox');
+        
+        // Initialize Paddle with client token
         (window as any).Paddle.Initialize({
           token: 'test_f82306e114f916062de3c0725ef',
+          // For production, add pwCustomer for Retain integration
+          // pwCustomer: 'customer-email@example.com',
+          eventCallback: (event: any) => {
+            console.log('Paddle event:', event);
+            if (event.name === 'checkout.completed') {
+              console.log('Payment successful!', event.data);
+              alert('Payment successful! Thank you for subscribing.');
+            }
+          }
         });
         setPaddleReady(true);
+        console.log('Paddle initialized successfully');
       }
+    };
+    script.onerror = () => {
+      console.error('Failed to load Paddle.js');
+      alert('Payment system failed to load. Please refresh the page.');
     };
     document.head.appendChild(script);
 
     return () => {
-      script.remove();
+      if (script.parentNode) {
+        script.remove();
+      }
     };
   }, []);
 
   const handleSubscribe = (priceId: string, planName: string) => {
     if (!paddleReady) {
-      alert('Payment system is loading. Please wait...');
+      alert('Payment system is still loading. Please wait a moment and try again.');
       return;
     }
 
-    (window as any).Paddle.Checkout.open({
-      items: [{ priceId, quantity: 1 }],
-      customData: {
-        planName,
-        userId: 'demo-user-' + Date.now(),
-      },
-      settings: {
-        displayMode: 'overlay',
-        theme: 'light',
-        locale: 'en',
-      },
-    });
+    if (!priceId) {
+      alert('Product configuration error. Please contact support.');
+      return;
+    }
+
+    try {
+      console.log('Opening Paddle checkout for:', { priceId, planName });
+      
+      (window as any).Paddle.Checkout.open({
+        items: [{ 
+          priceId: priceId, 
+          quantity: 1 
+        }],
+        customData: {
+          planName: planName,
+          userId: 'demo-user-' + Date.now(),
+          source: 'OrbitEdge Dashboard'
+        },
+        settings: {
+          displayMode: 'overlay',
+          theme: 'light',
+          locale: 'en',
+          allowLogout: false,
+          showAddDiscounts: true,
+          showAddTaxId: true,
+        },
+        customer: {
+          email: 'demo@orbitedge.com' // Pre-fill for testing
+        },
+        successCallback: (data: any) => {
+          console.log('Checkout success:', data);
+          alert(`🎉 Subscription activated! Welcome to ${planName} plan.`);
+        },
+        closeCallback: (data: any) => {
+          console.log('Checkout closed:', data);
+        }
+      });
+    } catch (error) {
+      console.error('Paddle checkout error:', error);
+      alert('Failed to open checkout. Please try again or contact support.');
+    }
   };
 
   const plans = [
@@ -124,20 +172,31 @@ export default function PricingDemo() {
         </div>
 
         {/* Payment Status */}
-        <div className="mb-8 p-4 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl text-center">
-          <p className="text-green-800 font-medium flex items-center justify-center gap-2">
-            {paddleReady ? (
-              <>
+        <div className="mb-8">
+          {paddleReady ? (
+            <div className="p-4 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl text-center">
+              <p className="text-green-800 font-medium flex items-center justify-center gap-2">
                 <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
-                Payment system ready! Click any plan to test checkout.
-              </>
-            ) : (
-              <>
+                ✅ Payment system ready! Click any plan to test Paddle checkout.
+              </p>
+            </div>
+          ) : (
+            <div className="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-xl text-center">
+              <p className="text-amber-800 font-medium flex items-center justify-center gap-2">
                 <span className="w-3 h-3 bg-amber-500 rounded-full animate-pulse"></span>
-                Loading payment system...
-              </>
-            )}
-          </p>
+                ⏳ Loading Paddle payment system...
+              </p>
+            </div>
+          )}
+          
+          {/* Debug Info */}
+          <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs">
+            <p className="text-blue-800 mb-1"><strong>Debug Info:</strong></p>
+            <p className="text-blue-700">Vendor ID: 42964</p>
+            <p className="text-blue-700">Environment: Sandbox</p>
+            <p className="text-blue-700">Price ID: pri_01kbxy71hvqced5x6cghdsa23n</p>
+            <p className="text-blue-700">Paddle Status: {paddleReady ? '✅ Loaded' : '⏳ Loading...'}</p>
+          </div>
         </div>
 
         {/* Pricing Cards */}
