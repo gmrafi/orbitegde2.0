@@ -2,9 +2,19 @@
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Satellite, Menu, X } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Satellite, Menu, X, User, Settings, LogOut } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
+import { useUser, useClerk } from '@clerk/nextjs'
+import { useRouter } from "next/navigation"
 
 interface UniversalHeaderProps {
   variant?: "light" | "dark"
@@ -12,11 +22,26 @@ interface UniversalHeaderProps {
 
 export default function UniversalHeader({ variant = "light" }: UniversalHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { user, isSignedIn } = useUser()
+  const { signOut } = useClerk()
+  const router = useRouter()
   
   const isDark = variant === "dark"
   const bgClass = isDark ? "bg-gray-900/95 border-gray-800" : "bg-white/95 border-gray-100"
   const textClass = isDark ? "text-gray-200" : "text-gray-900"
   const hoverClass = isDark ? "hover:text-[#4e6aff]" : "hover:text-[#4e6aff]"
+
+  const handleSignOut = async () => {
+    await signOut()
+    router.push('/')
+  }
+
+  const getInitials = () => {
+    if (user?.firstName && user?.lastName) {
+      return `${user.firstName[0]}${user.lastName[0]}`.toUpperCase()
+    }
+    return user?.emailAddresses[0]?.emailAddress?.[0]?.toUpperCase() || "U"
+  }
 
   return (
     <header className={`border-b ${bgClass} backdrop-blur-sm shadow-sm`}>
@@ -57,11 +82,53 @@ export default function UniversalHeader({ variant = "light" }: UniversalHeaderPr
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Link href="/dashboard">
-              <Button className="bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] hover:from-[#3d59ef] hover:to-[#5d4bef] text-white shadow-lg">
-                Launch Dashboard
-              </Button>
-            </Link>
+            {isSignedIn ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="flex items-center gap-2 p-2">
+                    <Avatar className="w-8 h-8">
+                      <AvatarImage src={user?.imageUrl} alt={user?.firstName || 'User'} />
+                      <AvatarFallback className="bg-[#4e6aff] text-white text-sm">
+                        {getInitials()}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span className="text-sm font-medium">
+                      {user?.firstName || user?.emailAddresses[0]?.emailAddress?.split("@")[0] || "User"}
+                    </span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <div className="px-2 py-2 text-sm">
+                    <p className="font-medium">{user?.firstName} {user?.lastName}</p>
+                    <p className="text-gray-500 text-xs truncate">{user?.emailAddresses[0]?.emailAddress}</p>
+                  </div>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/dashboard/profile" className="cursor-pointer">
+                      <User className="w-4 h-4 mr-2" />
+                      Profile
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/dashboard" className="cursor-pointer">
+                      <Settings className="w-4 h-4 mr-2" />
+                      Dashboard
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer text-red-600 focus:text-red-600">
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Link href="/sign-in">
+                <Button className="bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] hover:from-[#3d59ef] hover:to-[#5d4bef] text-white shadow-lg">
+                  Launch Dashboard
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -99,11 +166,30 @@ export default function UniversalHeader({ variant = "light" }: UniversalHeaderPr
               <Link href="/dashboard" className={`${textClass} ${hoverClass} transition-colors font-medium text-sm`}>
                 Dashboard
               </Link>
-              <Link href="/dashboard">
-                <Button className="w-full bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] hover:from-[#3d59ef] hover:to-[#5d4bef] text-white shadow-lg">
-                  Launch Dashboard
-                </Button>
-              </Link>
+              {isSignedIn ? (
+                <>
+                  <Link href="/dashboard/profile">
+                    <Button variant="outline" className="w-full">
+                      <User className="w-4 h-4 mr-2" />
+                      My Profile
+                    </Button>
+                  </Link>
+                  <Button 
+                    onClick={handleSignOut} 
+                    variant="outline" 
+                    className="w-full text-red-600 border-red-300 hover:bg-red-50"
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Link href="/sign-in">
+                  <Button className="w-full bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] hover:from-[#3d59ef] hover:to-[#5d4bef] text-white shadow-lg">
+                    Launch Dashboard
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         )}
