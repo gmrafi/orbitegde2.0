@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,26 +9,35 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Satellite, Settings, User, Bell } from "lucide-react"
+import { Satellite, Settings, User, Bell, LogOut } from "lucide-react"
 import Link from "next/link"
-
+import { useUser, useClerk } from '@clerk/nextjs'
 import { Badge } from "@/components/ui/badge"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
-interface DashboardHeaderProps {
-  user: {
-    email?: string
-  } | null // Allow null user to prevent build errors
-}
-
-export default function DashboardHeader({ user }: DashboardHeaderProps) {
+export default function DashboardHeader() {
   const pathname = usePathname()
+  const router = useRouter()
+  const { user } = useUser()
+  const { signOut } = useClerk()
 
   const isActive = (path: string) => {
     if (path === "/dashboard") {
       return pathname === "/dashboard"
     }
     return pathname.startsWith(path)
+  }
+
+  const handleSignOut = async () => {
+    await signOut()
+    router.push('/')
+  }
+
+  const getInitials = () => {
+    if (user?.firstName && user?.lastName) {
+      return `${user.firstName[0]}${user.lastName[0]}`.toUpperCase()
+    }
+    return user?.emailAddresses[0]?.emailAddress?.[0]?.toUpperCase() || "U"
   }
 
   return (
@@ -130,22 +139,38 @@ export default function DashboardHeader({ user }: DashboardHeaderProps) {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center gap-2 p-2">
                   <Avatar className="w-8 h-8">
+                    <AvatarImage src={user?.imageUrl} alt={user?.firstName || 'User'} />
                     <AvatarFallback className="bg-[#4e6aff] text-white text-sm">
-                      {user?.email?.charAt(0).toUpperCase() || "U"} {/* Added null check and fallback */}
+                      {getInitials()}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="hidden md:block text-sm font-medium">{user?.email?.split("@")[0] || "User"}</span>{" "}
-                  {/* Added null check and fallback */}
+                  <span className="hidden md:block text-sm font-medium">
+                    {user?.firstName || user?.emailAddresses[0]?.emailAddress?.split("@")[0] || "User"}
+                  </span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuItem>
-                  <User className="w-4 h-4 mr-2" />
-                  Profile
+                <div className="px-2 py-2 text-sm">
+                  <p className="font-medium">{user?.firstName} {user?.lastName}</p>
+                  <p className="text-gray-500 text-xs truncate">{user?.emailAddresses[0]?.emailAddress}</p>
+                </div>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link href="/dashboard/profile" className="cursor-pointer">
+                    <User className="w-4 h-4 mr-2" />
+                    Profile
+                  </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Settings className="w-4 h-4 mr-2" />
-                  Settings
+                <DropdownMenuItem asChild>
+                  <Link href="/dashboard/profile" className="cursor-pointer">
+                    <Settings className="w-4 h-4 mr-2" />
+                    Settings
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer text-red-600 focus:text-red-600">
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign Out
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

@@ -9,7 +9,6 @@ import { resources } from "@/lib/resources"
 import { useMemo, useState } from "react"
 
 export default function ResourcesPage() {
-	const user = { email: "demo@orbitbiz.com", id: "demo-user" }
 	const [q, setQ] = useState("")
 	const [agency, setAgency] = useState<string | null>(null)
 	const [category, setCategory] = useState<string | null>(null)
@@ -39,7 +38,7 @@ export default function ResourcesPage() {
 
 	return (
 		<div className="min-h-screen bg-gray-50">
-			<DashboardHeader user={user} />
+			<DashboardHeader />
 			<main className="container mx-auto px-4 py-8 max-w-7xl">
 				<div className="mb-6">
 					<h1 className="text-3xl font-bold text-gray-900 mb-2">Space Data & Resources</h1>
