@@ -3,12 +3,13 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
+import { useUser } from '@clerk/nextjs'
 import UniversalHeader from "@/components/universal-header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import {
   Dialog,
@@ -68,12 +69,13 @@ const AI_FEATURES = [
 ]
 
 export default function ChatPage() {
+  const { user } = useUser()
   const [showWelcomeDialog, setShowWelcomeDialog] = useState(true)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
       content:
-        "Hello! I'm Sumaiya Hoque from the OrbitEdge team. I'm currently studying business administration at Army IBA while working as a Digital Intelligence Specialist here at OrbitEdge.\n\nI'm here to help you with **space commerce**, **satellite operations**, and **orbital mechanics**. Whether you're interested in satellite tracking, collision avoidance, LEO business opportunities, or regulatory compliance, I can provide expert guidance based on real-time data and industry analysis.\n\nWhat would you like to explore today?",
+        "Hi! I'm Sumaiya, an **AI assistant** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance on LEO business, satellite tracking, orbital mechanics, and space industry insights.\n\nWhat would you like to explore today?",
       sender: "ai",
       timestamp: new Date(),
       category: "greeting"
@@ -762,11 +764,17 @@ export default function ChatPage() {
                           )}
                         </div>
                         {message.sender === "user" && (
-                          <Avatar className="h-10 w-10 ring-2 ring-purple-100">
-                            <AvatarFallback className="bg-gradient-to-br from-purple-500 to-pink-500 text-white">
-                              <User className="h-5 w-5" />
-                            </AvatarFallback>
-                          </Avatar>
+                          <div className="flex flex-col items-center gap-1">
+                            <Avatar className="h-10 w-10 ring-2 ring-purple-200 shadow-md">
+                              <AvatarImage src={user?.imageUrl} alt={user?.firstName || 'User'} />
+                              <AvatarFallback className="bg-gradient-to-br from-purple-500 to-pink-500 text-white">
+                                {user?.firstName?.[0]?.toUpperCase() || user?.emailAddresses[0]?.emailAddress?.[0]?.toUpperCase() || 'U'}
+                              </AvatarFallback>
+                            </Avatar>
+                            <span className="text-[11px] text-gray-500 font-medium">
+                              {user?.firstName || user?.emailAddresses[0]?.emailAddress?.split('@')[0] || 'You'}
+                            </span>
+                          </div>
                         )}
                       </div>
                     ))}

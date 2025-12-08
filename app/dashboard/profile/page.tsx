@@ -141,11 +141,12 @@ export default async function ProfilePage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
-            <Link href="/sign-in">
+            <a href={`https://accounts.clerk.dev/user`} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="w-full justify-start text-white border-[#2a2a3e] hover:bg-[#2a2a3e]">
-                Manage Account Settings
+                <User className="w-4 h-4 mr-2" />
+                Manage Account with Clerk
               </Button>
-            </Link>
+            </a>
             <Link href="/dashboard">
               <Button variant="outline" className="w-full justify-start text-white border-[#2a2a3e] hover:bg-[#2a2a3e]">
                 Return to Dashboard
