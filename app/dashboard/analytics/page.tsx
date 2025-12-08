@@ -13,12 +13,6 @@ import SpaceTourismPlanner from "@/components/dashboard/tourism/space-tourism-pl
 import InsuranceRiskWidget from "@/components/dashboard/insurance-risk-widget"
 
 export default async function AnalyticsPage() {
-  // Mock user for demo purposes
-  const user = {
-    email: "demo@orbitbiz.com",
-    id: "demo-user"
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       <UniversalHeader variant="dark" />

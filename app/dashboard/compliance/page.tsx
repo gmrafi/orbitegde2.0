@@ -6,12 +6,6 @@ import DebrisTracking from "@/components/dashboard/compliance/debris-tracking"
 import AssetLifecycleManager from "@/components/dashboard/sustainability/asset-lifecycle-manager"
 
 export default async function CompliancePage() {
-  // Mock user for demo purposes
-  const user = {
-    email: "demo@orbitbiz.com",
-    id: "demo-user"
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       <UniversalHeader variant="dark" />

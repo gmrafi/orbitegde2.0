@@ -1,3 +1,4 @@
+import { currentUser } from '@clerk/nextjs/server'
 import UniversalHeader from "@/components/universal-header"
 import SatelliteOverview from "@/components/dashboard/satellite-overview"
 import LiveSatelliteMap from "@/components/dashboard/live-satellite-map"
@@ -15,11 +16,14 @@ import { BarChart3, TrendingUp, DollarSign, Satellite as SatelliteIcon, Globe, Z
 import Link from "next/link"
 
 export default async function DashboardPage() {
-  // Mock user for demo purposes
-  const user = {
-    email: "demo@orbitbiz.com",
-    id: "demo-user"
-  }
+  // Get authenticated user from Clerk
+  const user = await currentUser()
+
+  // Get user's display name (first name, or email username as fallback)
+  const displayName = user?.firstName || user?.emailAddresses[0]?.emailAddress?.split("@")[0] || "User"
+  const fullName = user?.firstName && user?.lastName 
+    ? `${user.firstName} ${user.lastName}` 
+    : displayName
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -30,7 +34,7 @@ export default async function DashboardPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, {user.email?.split("@")[0]}</h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, {fullName}</h1>
               <p className="text-gray-600">Monitor your LEO satellites and track orbital compliance in real-time</p>
             </div>
             <div className="flex items-center gap-3">

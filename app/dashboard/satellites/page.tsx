@@ -2,12 +2,6 @@ import UniversalHeader from "@/components/universal-header"
 import RealTimeTracking from "@/components/dashboard/nasa/real-time-tracking"
 
 export default async function SatellitesPage() {
-  // Mock user for demo purposes
-  const user = {
-    email: "demo@orbitbiz.com",
-    id: "demo-user"
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       <UniversalHeader variant="dark" />

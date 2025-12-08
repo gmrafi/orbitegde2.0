@@ -261,12 +261,6 @@ const generateMockInfrastructure = () => {
 }
 
 export default function MapPage() {
-  // Mock user for demo purposes
-  const user = {
-    email: "demo@orbitbiz.com",
-    id: "demo-user"
-  }
-  
   return (
     <div className="min-h-screen bg-gray-50">
       <UniversalHeader variant="dark" />
