@@ -85,10 +85,10 @@ export default function UniversalHeader({ variant = "light" }: UniversalHeaderPr
             {isSignedIn ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-2 p-2">
-                    <Avatar className="w-8 h-8">
+                  <Button className="bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] hover:from-[#3d59ef] hover:to-[#5d4bef] text-white shadow-lg flex items-center gap-2">
+                    <Avatar className="w-6 h-6">
                       <AvatarImage src={user?.imageUrl} alt={user?.firstName || 'User'} />
-                      <AvatarFallback className="bg-[#4e6aff] text-white text-sm">
+                      <AvatarFallback className="bg-white/20 text-white text-xs">
                         {getInitials()}
                       </AvatarFallback>
                     </Avatar>
@@ -169,8 +169,13 @@ export default function UniversalHeader({ variant = "light" }: UniversalHeaderPr
               {isSignedIn ? (
                 <>
                   <Link href="/dashboard/profile">
-                    <Button variant="outline" className="w-full">
-                      <User className="w-4 h-4 mr-2" />
+                    <Button className="w-full bg-gradient-to-r from-[#4e6aff] to-[#6d5bff] hover:from-[#3d59ef] hover:to-[#5d4bef] text-white shadow-lg flex items-center justify-center gap-2">
+                      <Avatar className="w-5 h-5">
+                        <AvatarImage src={user?.imageUrl} alt={user?.firstName || 'User'} />
+                        <AvatarFallback className="bg-white/20 text-white text-xs">
+                          {getInitials()}
+                        </AvatarFallback>
+                      </Avatar>
                       My Profile
                     </Button>
                   </Link>
