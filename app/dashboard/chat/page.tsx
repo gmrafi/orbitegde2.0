@@ -73,7 +73,7 @@ export default function ChatPage() {
     {
       id: "1",
       content:
-        "Hello! I'm Sumaiya Hoque from the OrbitEdge team. I'm here to assist you with all your space commerce needs - from satellite tracking and collision avoidance to LEO business opportunities and regulatory compliance. Whether you're managing a satellite constellation, exploring launch opportunities, or analyzing space market trends, I'm here to provide expert guidance. How can I help you today?",
+        "Hello! I'm Sumaiya Hoque from the OrbitEdge team. I'm currently studying business administration at Army IBA while working as a Digital Intelligence Specialist here at OrbitEdge.\n\nI'm here to help you with **space commerce**, **satellite operations**, and **orbital mechanics**. Whether you're interested in satellite tracking, collision avoidance, LEO business opportunities, or regulatory compliance, I can provide expert guidance based on real-time data and industry analysis.\n\nWhat would you like to explore today?",
       sender: "ai",
       timestamp: new Date(),
       category: "greeting"
@@ -83,6 +83,7 @@ export default function ChatPage() {
   const [currentConversationId, setCurrentConversationId] = useState<string | null>(null)
   const [inputMessage, setInputMessage] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [isThinking, setIsThinking] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
   const [showHistory, setShowHistory] = useState(false)
   const [isRecording, setIsRecording] = useState(false)
@@ -296,6 +297,7 @@ export default function ChatPage() {
     setMessages((prev) => [...prev, userMessage])
     setInputMessage("")
     setIsLoading(true)
+    setIsThinking(true)
 
     try {
       const aiResponse = await generateAIResponse(inputMessage)
@@ -310,9 +312,11 @@ export default function ChatPage() {
       setTimeout(() => {
         setMessages((prev) => [...prev, aiMessage])
         setIsLoading(false)
+        setIsThinking(false)
       }, 1000)
     } catch (error) {
       setIsLoading(false)
+      setIsThinking(false)
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         content: "I'm experiencing technical difficulties. Please try again or contact support.",
@@ -692,9 +696,14 @@ export default function ChatPage() {
                             }`}
                           >
                             <div className="flex items-start justify-between gap-2">
-                              <p className={`text-sm leading-relaxed flex-1 ${message.sender === "ai" ? "text-gray-700" : ""} whitespace-pre-line`}>
-                                {message.content}
-                              </p>
+                              <div 
+                                className={`text-sm leading-relaxed flex-1 ${message.sender === "ai" ? "text-gray-700" : ""} whitespace-pre-line`}
+                                dangerouslySetInnerHTML={{
+                                  __html: message.content
+                                    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
+                                    .replace(/\n/g, '<br />')
+                                }}
+                              />
                               {message.category && (
                                 <Badge variant="secondary" className="text-xs shrink-0">
                                   {message.category}
@@ -761,11 +770,45 @@ export default function ChatPage() {
                         )}
                       </div>
                     ))}
-                    {isLoading && (
+                    {isThinking && (
                       <div className="flex gap-3 justify-start animate-in fade-in slide-in-from-bottom-4">
                         <div className="flex flex-col items-center gap-1">
                           <Avatar className="h-12 w-12 ring-2 ring-emerald-200 shadow-md">
                             <div className="w-full h-full rounded-full overflow-hidden">
+                              <Image 
+                                src="/team/sumaiya.png" 
+                                alt="Sumaiya Hoque - OrbitEdge Team" 
+                                width={48} 
+                                height={48}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          </Avatar>
+                          <span className="text-[11px] text-gray-500 font-medium">Sumaiya</span>
+                        </div>
+                        <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-lg">
+                          <div className="flex items-center gap-3">
+                            <div className="flex gap-1.5">
+                              <div className="w-2.5 h-2.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-bounce"></div>
+                              <div
+                                className="w-2.5 h-2.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-bounce"
+                                style={{ animationDelay: "0.1s" }}
+                              ></div>
+                              <div
+                                className="w-2.5 h-2.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-bounce"
+                                style={{ animationDelay: "0.2s" }}
+                              ></div>
+                            </div>
+                            <span className="text-sm text-gray-500 italic">Sumaiya is thinking...</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    {isLoading && !isThinking && (
+                      <div className="flex gap-3 justify-start animate-in fade-in slide-in-from-bottom-4">
+                        <div className="flex flex-col items-center gap-1">
+                          <Avatar className="h-12 w-12 ring-2 ring-emerald-200 shadow-md">
+                            <div className="w-full h-full rounded-hidden overflow-hidden">
                               <Image 
                                 src="/team/sumaiya.png" 
                                 alt="Sumaiya Hoque - OrbitEdge Team" 
