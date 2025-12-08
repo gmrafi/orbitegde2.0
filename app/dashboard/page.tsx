@@ -34,7 +34,7 @@ export default async function DashboardPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, {fullName}</h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, <span className="text-[#4e6aff]">{fullName}</span></h1>
               <p className="text-gray-600">Monitor your LEO satellites and track orbital compliance in real-time</p>
             </div>
             <div className="flex items-center gap-3">

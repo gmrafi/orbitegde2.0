@@ -772,7 +772,7 @@ export default function ChatPage() {
                               </AvatarFallback>
                             </Avatar>
                             <span className="text-[11px] text-gray-500 font-medium">
-                              {user?.firstName || user?.emailAddresses[0]?.emailAddress?.split('@')[0] || 'You'}
+                              {user?.lastName || user?.firstName || user?.emailAddresses[0]?.emailAddress?.split('@')[0] || 'You'}
                             </span>
                           </div>
                         )}
