@@ -313,44 +313,42 @@ export default function ChatPage() {
       
       {/* Welcome Dialog - Compact Side-by-Side */}
       <Dialog open={showWelcomeDialog} onOpenChange={setShowWelcomeDialog}>
-        <DialogContent className="max-w-4xl p-0 overflow-hidden border-0 bg-white max-h-[85vh] overflow-y-auto">
+        <DialogContent className="max-w-5xl p-0 overflow-hidden border-0 bg-white">
           <div className="relative flex flex-col md:flex-row">
             {/* Left Side - Profile Highlight */}
-            <div className="md:w-2/5 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 p-6 md:p-8 text-white relative overflow-hidden">
+            <div className="md:w-2/5 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 p-8 text-white relative overflow-hidden">
               {/* Animated background */}
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20"></div>
               <div className="absolute top-0 right-0 w-40 h-40 bg-blue-400/30 rounded-full blur-3xl"></div>
               <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-400/30 rounded-full blur-3xl"></div>
               
-              <div className="relative text-center flex flex-col items-center justify-center h-full">
+              <div className="relative text-center flex flex-col items-center justify-center">
                 {/* Large Avatar */}
-                <div className="relative w-40 h-40 mb-6">
+                <div className="relative w-36 h-36 mb-5">
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-300 to-blue-400 rounded-full blur-2xl opacity-60 animate-pulse"></div>
-                  <div className="relative w-40 h-40 rounded-full overflow-hidden ring-4 ring-white/30 shadow-2xl">
+                  <div className="relative w-36 h-36 rounded-full overflow-hidden ring-4 ring-white/30 shadow-2xl">
                     <Image 
                       src="/team/sumaiya.png" 
                       alt="Sumaiya Hoque" 
-                      width={160} 
-                      height={160}
+                      width={144} 
+                      height={144}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   {/* Online indicator */}
-                  <div className="absolute bottom-3 right-3">
+                  <div className="absolute bottom-2 right-2">
                     <div className="absolute w-7 h-7 bg-green-400 rounded-full opacity-40 animate-ping"></div>
-                    <div className="relative w-5 h-5 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full border-3 border-white shadow-lg"></div>
+                    <div className="relative w-5 h-5 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full border-2 border-white shadow-lg"></div>
                   </div>
                 </div>
                 
-                <h2 className="text-2xl md:text-3xl font-bold mb-2">Sumaiya Hoque</h2>
-                <div className="space-y-2 mb-4">
-                  <Badge className="bg-white/20 border-white/30 text-white text-xs">
-                    <Bot className="h-3 w-3 mr-1" />
-                    Digital Intelligence Specialist
-                  </Badge>
-                </div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">Sumaiya Hoque</h2>
+                <Badge className="bg-white/20 border-white/30 text-white text-xs mb-4">
+                  <Bot className="h-3 w-3 mr-1" />
+                  Digital Intelligence Specialist
+                </Badge>
                 
-                <div className="space-y-2 text-sm text-blue-100">
+                <div className="space-y-2 text-sm text-blue-100 mb-5">
                   <p className="flex items-center justify-center gap-2">
                     <Satellite className="h-4 w-4" />
                     Space Commerce Expert
@@ -365,20 +363,20 @@ export default function ChatPage() {
                   </p>
                 </div>
                 
-                <div className="mt-6 pt-6 border-t border-white/20 w-full">
+                <div className="pt-5 border-t border-white/20 w-full">
                   <div className="flex items-center justify-center gap-3 mb-3">
-                    <Badge className="bg-white/20 text-white border-white/30 text-xs">
+                    <Badge className="bg-white/20 text-white border-white/30 text-xs px-3 py-1">
                       <Sparkles className="h-3 w-3 mr-1" />
                       v2.0
                     </Badge>
-                    <Badge className="bg-green-500/90 text-white border-green-400/30 text-xs">
+                    <Badge className="bg-green-500/90 text-white border-green-400/30 text-xs px-3 py-1">
                       <div className="w-2 h-2 bg-white rounded-full animate-pulse mr-1.5"></div>
                       <span className="animate-pulse">Online</span>
                     </Badge>
                   </div>
-                  <div className="bg-yellow-400/20 border border-yellow-300/50 rounded-lg p-2.5 mt-3">
-                    <p className="text-[11px] text-yellow-100 text-center leading-relaxed font-medium">
-                      ⚠️ This is an AI persona inspired by Sumaiya Hoque. Responses do not represent personal opinions of the individual or OrbitEdge.
+                  <div className="bg-yellow-400/20 border border-yellow-300/50 rounded-lg p-2.5">
+                    <p className="text-[10px] text-yellow-100 text-center leading-relaxed font-medium">
+                      ⚠️ AI persona inspired by Sumaiya Hoque. Does not represent personal or OrbitEdge opinions.
                     </p>
                   </div>
                 </div>
@@ -386,43 +384,42 @@ export default function ChatPage() {
             </div>
 
             {/* Right Side - Guidelines */}
-            <div className="md:w-3/5 p-6 md:p-8">
+            <div className="md:w-3/5 p-7">
               <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
                 Welcome to OrbitEdge Intelligence
               </DialogTitle>
-              <DialogDescription className="text-gray-600 mb-4">
+              <DialogDescription className="text-gray-600 text-sm mb-4">
                 Your expert guide for space commerce & satellite operations
               </DialogDescription>
               
               {/* About Sumaiya AI */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-3.5 mb-4">
                 <h4 className="font-bold text-gray-900 text-sm mb-2 flex items-center gap-2">
                   <Bot className="h-4 w-4 text-blue-600" />
                   About Your Digital Intelligence Specialist
                 </h4>
                 <p className="text-xs text-gray-700 leading-relaxed">
-                  Sumaiya is an advanced AI persona trained on space commerce, satellite operations, and orbital mechanics. She provides expert guidance on LEO business opportunities, collision risk assessment, regulatory compliance, and financial modeling. With access to real-time data from 64,000+ satellites, she delivers accurate insights for satellite operators, space entrepreneurs, and industry professionals.
+                  Sumaiya is an AI trained on space commerce & satellite operations. She provides expert guidance on LEO business, risk assessment, compliance, and financial modeling with access to 64,000+ satellites data.
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-2 gap-4 mb-4">
                 {/* What to Do */}
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <div className="flex items-center gap-2 mb-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-green-600" />
                     <h4 className="font-bold text-green-900 text-sm">What to Do</h4>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     {[
                       "Satellite tracking",
                       "Risk analysis",
                       "Business insights",
                       "Financial models",
-                      "Compliance help",
-                      "Orbital data"
+                      "Compliance help"
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-gray-700">
-                        <div className="mt-1 w-1 h-1 rounded-full bg-green-500 flex-shrink-0"></div>
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0"></div>
                         <span>{item}</span>
                       </div>
                     ))}
@@ -431,21 +428,20 @@ export default function ChatPage() {
 
                 {/* What Not to Do */}
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <XCircle className="h-5 w-5 text-red-600" />
+                  <div className="flex items-center gap-2 mb-2.5">
+                    <XCircle className="h-4 w-4 text-red-600" />
                     <h4 className="font-bold text-red-900 text-sm">What Not to Do</h4>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     {[
                       "Share credentials",
                       "Request launches",
                       "Real-time commands",
                       "Off-topic queries",
-                      "Classified info",
                       "Legal advice"
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-gray-700">
-                        <div className="mt-1 w-1 h-1 rounded-full bg-red-500 flex-shrink-0"></div>
+                        <div className="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0"></div>
                         <span>{item}</span>
                       </div>
                     ))}
@@ -454,9 +450,9 @@ export default function ChatPage() {
               </div>
 
               {/* Features */}
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-4 mb-6 border border-blue-100">
-                <h4 className="text-sm font-bold text-gray-900 mb-3">Intelligence Capabilities</h4>
-                <div className="grid grid-cols-3 gap-2">
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-3.5 mb-4 border border-blue-100">
+                <h4 className="text-sm font-bold text-gray-900 mb-2.5">Intelligence Capabilities</h4>
+                <div className="grid grid-cols-3 gap-2.5">
                   {AI_FEATURES.map((feature, index) => {
                     const Icon = feature.icon
                     return (
@@ -464,7 +460,7 @@ export default function ChatPage() {
                         <div className="inline-flex p-2 bg-white rounded-lg shadow-sm mb-1">
                           <Icon className="h-4 w-4 text-blue-600" />
                         </div>
-                        <p className="text-[10px] font-semibold text-gray-900">{feature.name}</p>
+                        <p className="text-[10px] font-semibold text-gray-900 leading-tight">{feature.name}</p>
                       </div>
                     )
                   })}
@@ -475,7 +471,7 @@ export default function ChatPage() {
               <div className="flex gap-3">
                 <Button
                   onClick={() => setShowWelcomeDialog(false)}
-                  className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-5 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-5 text-sm font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
                 >
                   <Rocket className="h-4 w-4 mr-2" />
                   Start Chatting
@@ -483,13 +479,13 @@ export default function ChatPage() {
                 <Button
                   variant="outline"
                   onClick={() => setShowWelcomeDialog(false)}
-                  className="px-6 py-5 rounded-xl border-2 hover:bg-gray-50"
+                  className="px-6 py-5 rounded-xl border-2 hover:bg-gray-50 text-sm font-medium"
                 >
                   Skip
                 </Button>
               </div>
               
-              <p className="text-[10px] text-gray-500 text-center mt-4">
+              <p className="text-[10px] text-gray-500 text-center mt-3">
                 Monitoring 64,000+ Satellites • ISO 24113 Compliant
               </p>
             </div>
