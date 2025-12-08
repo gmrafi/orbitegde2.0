@@ -45,183 +45,323 @@ export default async function DashboardPage() {
         {/* Overview Cards */}
         <SatelliteOverview />
 
-        {/* Quick Access Feature Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          <Link href="/dashboard/satellites">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
-                    <SatelliteIcon className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg">Live Tracking</CardTitle>
-                    <p className="text-sm text-gray-600">Real-time monitoring</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+        {/* Quick Access Feature Cards - All 6 Modules */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <Globe className="w-6 h-6 text-blue-600" />
+            All Features & Modules
+          </h2>
+          <p className="text-gray-600 mb-6">Access all OrbitEdge features from your unified dashboard</p>
+        </div>
 
-          <Link href="/dashboard/analytics">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-                    <BarChart3 className="w-5 h-5 text-white" />
+        {/* MODULE 1: Core Monitoring & Visualization */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+            <SatelliteIcon className="w-5 h-5 text-blue-600" />
+            Module 1: Core Monitoring & Visualization
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/dashboard/map">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                      <Globe className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">3D Globe Engine</CardTitle>
+                      <p className="text-xs text-gray-600">Interactive Earth (Mapbox)</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Analytics</CardTitle>
-                    <p className="text-sm text-gray-600">Financial insights</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
 
-          <Link href="/dashboard/compliance">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
-                    <Activity className="w-5 h-5 text-white" />
+            <Link href="/dashboard/satellites">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-cyan-50 to-cyan-100 hover:from-cyan-100 hover:to-cyan-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center">
+                      <SatelliteIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">Live Satellite Tracking</CardTitle>
+                      <p className="text-xs text-gray-600">TLE Data (30s updates)</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Compliance</CardTitle>
-                    <p className="text-sm text-gray-600">Risk management</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
 
-          <Link href="/dashboard/map">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
-                    <Globe className="w-5 h-5 text-white" />
+            <Link href="/dashboard/map">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-red-50 to-orange-100 hover:from-red-100 hover:to-orange-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center">
+                      <Activity className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">Debris Heatmap</CardTitle>
+                      <p className="text-xs text-gray-600">Color-coded risk zones</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Global Map</CardTitle>
-                    <p className="text-sm text-gray-600">Worldwide coverage</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
 
-          <Link href="/dashboard/marketplace">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-cyan-50 to-cyan-100 hover:from-cyan-100 hover:to-cyan-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center">
-                    <Radio className="w-5 h-5 text-white" />
+            <Link href="/dashboard/satellites">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-purple-50 to-indigo-100 hover:from-purple-100 hover:to-indigo-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+                      <BarChart3 className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">Catalog Filters</CardTitle>
+                      <p className="text-xs text-gray-600">Starlink, ISS, Debris</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Marketplace</CardTitle>
-                    <p className="text-sm text-gray-600">Ground station booking</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+        </div>
 
-          <Link href="/dashboard/security">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-emerald-50 to-emerald-100 hover:from-emerald-100 hover:to-emerald-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
-                    <Lock className="w-5 h-5 text-white" />
+        {/* MODULE 2: OrbitAI & Automation */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+            <MessageSquare className="w-5 h-5 text-emerald-600" />
+            Module 2: OrbitAI & Automation (AI Brain)
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Link href="/dashboard/chat">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-emerald-50 to-teal-100 hover:from-emerald-100 hover:to-teal-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
+                      <MessageSquare className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">OrbitAI Assistant</CardTitle>
+                      <p className="text-xs text-gray-600">NLP Chatbot (Sumaiya)</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Security</CardTitle>
-                    <p className="text-sm text-gray-600">Blockchain audit log</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
 
-          <Link href="/dashboard/command">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-violet-50 to-violet-100 hover:from-violet-100 hover:to-violet-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-violet-500 rounded-lg flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-white" />
+            <Link href="/dashboard/command">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-yellow-50 to-orange-100 hover:from-yellow-100 hover:to-orange-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-yellow-500 rounded-lg flex items-center justify-center">
+                      <Zap className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">AI Maneuver Recommender</CardTitle>
+                      <p className="text-xs text-gray-600">Delta-V cost optimizer</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Command Center</CardTitle>
-                    <p className="text-sm text-gray-600">Enterprise dashboard</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
 
-          <Link href="/dashboard/chat">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-pink-50 to-pink-100 hover:from-pink-100 hover:to-pink-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center">
-                    <MessageSquare className="w-5 h-5 text-white" />
+            <Link href="/dashboard/launch-optimizer">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-orange-50 to-red-100 hover:from-orange-100 hover:to-red-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+                      <Rocket className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">Launch Window Optimizer</CardTitle>
+                      <p className="text-xs text-gray-600">Space weather & traffic</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">OrbitAI Assistant</CardTitle>
-                    <p className="text-sm text-gray-600">NLP chatbot</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+        </div>
 
-          <Link href="/dashboard/launch-optimizer">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-orange-50 to-red-100 hover:from-orange-100 hover:to-red-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
-                    <Rocket className="w-5 h-5 text-white" />
+        {/* MODULE 3: Commerce & Marketplace */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+            <DollarSign className="w-5 h-5 text-green-600" />
+            Module 3: Commerce & Marketplace (Revenue Engine)
+          </h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/dashboard/marketplace">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-green-50 to-emerald-100 hover:from-green-100 hover:to-emerald-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                      <Radio className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">Ground Station Booking</CardTitle>
+                      <p className="text-xs text-gray-600">Calendar-based antenna rental</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Launch Optimizer</CardTitle>
-                    <p className="text-sm text-gray-600">AI launch windows</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
 
-          <Link href="/dashboard/developer">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
-                    <Code className="w-5 h-5 text-white" />
+            <Link href="/dashboard/analytics">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-teal-50 to-cyan-100 hover:from-teal-100 hover:to-cyan-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center">
+                      <TrendingUp className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">Revenue & Commission</CardTitle>
+                      <p className="text-xs text-gray-600">Owner earnings dashboard</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">Developer Portal</CardTitle>
-                    <p className="text-sm text-gray-600">API key management</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+        </div>
 
-          <Link href="/dashboard/users">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-indigo-50 to-indigo-100 hover:from-indigo-100 hover:to-indigo-200">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-white" />
+        {/* MODULE 4: Compliance & Security */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+            <Shield className="w-5 h-5 text-indigo-600" />
+            Module 4: Compliance & Security (Legal & Safety)
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Link href="/dashboard/compliance">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-indigo-50 to-blue-100 hover:from-indigo-100 hover:to-blue-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center">
+                      <Activity className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">ISO 24113 Reporter</CardTitle>
+                      <p className="text-xs text-gray-600">Auto compliance score</p>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">User Management</CardTitle>
-                    <p className="text-sm text-gray-600">RBAC & permissions</p>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/security">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-violet-50 to-purple-100 hover:from-violet-100 hover:to-purple-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-violet-500 rounded-lg flex items-center justify-center">
+                      <Lock className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">Blockchain Ledger</CardTitle>
+                      <p className="text-xs text-gray-600">SHA-256 immutable log</p>
+                    </div>
                   </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </Link>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/map">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-red-50 to-pink-100 hover:from-red-100 hover:to-pink-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center">
+                      <Radio className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">RF Jamming Alert</CardTitle>
+                      <p className="text-xs text-gray-600">Signal interference map</p>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+        </div>
+
+        {/* MODULE 5: Financial Analytics */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+            <BarChart3 className="w-5 h-5 text-blue-600" />
+            Module 5: Financial Analytics (FinTech Core)
+          </h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/dashboard/analytics">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-blue-50 to-cyan-100 hover:from-blue-100 hover:to-cyan-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                      <BarChart3 className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">Insurance Risk Score API</CardTitle>
+                      <p className="text-xs text-gray-600">Dynamic 0-100 calculation</p>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/analytics">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-cyan-50 to-teal-100 hover:from-cyan-100 hover:to-teal-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center">
+                      <TrendingUp className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">ROI & Cost Projections</CardTitle>
+                      <p className="text-xs text-gray-600">5-year charts (Recharts)</p>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+        </div>
+
+        {/* MODULE 6: User Management */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+            <Users className="w-5 h-5 text-purple-600" />
+            Module 6: User Management (Admin Core)
+          </h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/dashboard/users">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-purple-50 to-pink-100 hover:from-purple-100 hover:to-pink-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+                      <Shield className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">RBAC System</CardTitle>
+                      <p className="text-xs text-gray-600">Admin / Operator / Viewer</p>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            </Link>
+
+            <Link href="/dashboard/developer">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer bg-gradient-to-br from-pink-50 to-rose-100 hover:from-pink-100 hover:to-rose-200 h-full">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center">
+                      <Code className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">API Key Generator</CardTitle>
+                      <p className="text-xs text-gray-600">Developer quotas & limits</p>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
         </div>
 
         {/* Main Dashboard Grid */}

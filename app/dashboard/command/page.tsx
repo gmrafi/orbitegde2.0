@@ -20,10 +20,11 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import UniversalHeader from "@/components/universal-header"
+import CommandCenterMap from "@/components/dashboard/command-center-map"
 
 export default function NewDashboardPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/40">
       <UniversalHeader variant="dark" />
 
       <main className="container mx-auto px-4 py-8 max-w-7xl">
@@ -31,12 +32,14 @@ export default function NewDashboardPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-white mb-2">OrbitEdge Command Center</h1>
-              <p className="text-gray-400">AI-Powered Space Traffic Management & Commerce Platform</p>
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
+                OrbitEdge Command Center
+              </h1>
+              <p className="text-gray-600">AI-Powered Space Traffic Management & Commerce Platform</p>
             </div>
             <div className="flex items-center gap-3">
-              <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+              <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 shadow-sm">
+                <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse"></div>
                 All Systems Operational
               </Badge>
             </div>
@@ -45,188 +48,205 @@ export default function NewDashboardPage() {
 
         {/* Quick Stats - Bento Grid Style */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border-blue-500/20 backdrop-blur-sm">
+          <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-400 mb-1">Active Satellites</p>
-                  <p className="text-3xl font-bold text-white">127</p>
-                  <p className="text-xs text-green-400 mt-1">+12 this month</p>
+                  <p className="text-sm text-gray-500 mb-1">Active Satellites</p>
+                  <p className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">127</p>
+                  <p className="text-xs text-emerald-600 mt-1 font-medium">+12 this month</p>
                 </div>
-                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                  <Satellite className="w-6 h-6 text-blue-400" />
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
+                  <Satellite className="w-7 h-7 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-red-500/10 to-red-600/5 border-red-500/20 backdrop-blur-sm">
+          <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-400 mb-1">Active Alerts</p>
-                  <p className="text-3xl font-bold text-white">3</p>
-                  <p className="text-xs text-red-400 mt-1">2 high priority</p>
+                  <p className="text-sm text-gray-500 mb-1">Active Alerts</p>
+                  <p className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">3</p>
+                  <p className="text-xs text-orange-600 mt-1 font-medium">2 high priority</p>
                 </div>
-                <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
-                  <AlertTriangle className="w-6 h-6 text-red-400" />
+                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/30">
+                  <AlertTriangle className="w-7 h-7 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-emerald-500/10 to-emerald-600/5 border-emerald-500/20 backdrop-blur-sm">
+          <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-400 mb-1">Safety Score</p>
-                  <p className="text-3xl font-bold text-white">94/100</p>
-                  <p className="text-xs text-emerald-400 mt-1">Excellent rating</p>
+                  <p className="text-sm text-gray-500 mb-1">Safety Score</p>
+                  <p className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">94/100</p>
+                  <p className="text-xs text-emerald-600 mt-1 font-medium">Excellent rating</p>
                 </div>
-                <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-emerald-400" />
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                  <Shield className="w-7 h-7 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 border-purple-500/20 backdrop-blur-sm">
+          <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-400 mb-1">API Calls</p>
-                  <p className="text-3xl font-bold text-white">8.4K</p>
-                  <p className="text-xs text-purple-400 mt-1">1.6K remaining</p>
+                  <p className="text-sm text-gray-500 mb-1">API Calls</p>
+                  <p className="text-3xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">8.4K</p>
+                  <p className="text-xs text-violet-600 mt-1 font-medium">1.6K remaining</p>
                 </div>
-                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                  <Code className="w-6 h-6 text-purple-400" />
+                <div className="w-14 h-14 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/30">
+                  <Code className="w-7 h-7 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Main Modules - Bento Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          {/* Module A: AI Maneuver Autopilot */}
-          <Link href="/dashboard" className="lg:col-span-2">
-            <Card className="bg-gradient-to-br from-orange-500/10 to-red-500/5 border-orange-500/30 backdrop-blur-sm hover:border-orange-500/50 transition-all h-full group cursor-pointer">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <CardTitle className="text-white flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-orange-400" />
-                    AI Maneuver Autopilot
-                  </CardTitle>
-                  <Badge className="bg-orange-500 text-white">ACTIVE</Badge>
-                </div>
-                <CardDescription className="text-gray-400">
-                  Automated collision avoidance with cost optimization
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="bg-black/20 rounded-lg p-4 border border-orange-500/20">
+        {/* Main Content Grid with Map on Right Side */}
+        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+          {/* Left Side - Main Modules */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Main Modules - Bento Grid Layout */}
+            <div className="grid grid-cols-1 gap-6">
+              {/* Module A: AI Maneuver Autopilot */}
+              <Link href="/dashboard">
+                <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all group cursor-pointer">
+                  <CardHeader>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-gray-400">Current Threat</span>
-                      <Badge className="bg-red-500/20 text-red-400 border-red-500/30">HIGH RISK</Badge>
+                      <CardTitle className="text-gray-900 flex items-center gap-2">
+                        <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center shadow-lg shadow-orange-500/30">
+                          <Zap className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">AI Maneuver Autopilot</span>
+                      </CardTitle>
+                      <Badge className="bg-orange-100 text-orange-700 border-orange-200 shadow-sm">ACTIVE</Badge>
                     </div>
-                    <p className="text-white font-semibold mb-1">COSMOS 1408-154</p>
-                    <p className="text-sm text-gray-400">Distance: 2.3 km • Velocity: 7.6 km/s</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
-                      <p className="text-xs text-gray-400 mb-1">Economy Mode</p>
-                      <p className="text-lg font-bold text-white">$100</p>
-                      <p className="text-xs text-green-400">85% risk reduction</p>
+                    <CardDescription className="text-gray-600">
+                      Automated collision avoidance with cost optimization
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-4 border border-red-200">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm text-gray-600 font-medium">Current Threat</span>
+                          <Badge className="bg-red-100 text-red-700 border-red-200 shadow-sm">HIGH RISK</Badge>
+                        </div>
+                        <p className="text-gray-900 font-semibold mb-1">COSMOS 1408-154</p>
+                        <p className="text-sm text-gray-600">Distance: 2.3 km • Velocity: 7.6 km/s</p>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl p-3 shadow-sm">
+                          <p className="text-xs text-gray-600 mb-1 font-medium">Economy Mode</p>
+                          <p className="text-lg font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">$100</p>
+                          <p className="text-xs text-emerald-700 font-medium">85% risk reduction</p>
+                        </div>
+                        <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-3 shadow-sm">
+                          <p className="text-xs text-gray-600 mb-1 font-medium">Emergency Mode</p>
+                          <p className="text-lg font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">$250</p>
+                          <p className="text-xs text-blue-700 font-medium">99% risk reduction</p>
+                        </div>
+                      </div>
+                      <Button className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg shadow-orange-500/30">
+                        View Maneuver Options →
+                      </Button>
                     </div>
-                    <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-3">
-                      <p className="text-xs text-gray-400 mb-1">Emergency Mode</p>
-                      <p className="text-lg font-bold text-white">$250</p>
-                      <p className="text-xs text-blue-400">99% risk reduction</p>
-                    </div>
-                  </div>
-                  <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
-                    View Maneuver Options →
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
+                  </CardContent>
+                </Card>
+              </Link>
 
-          {/* Module C: Space Weather & Defense */}
-          <Link href="/dashboard/weather">
-            <Card className="bg-gradient-to-br from-cyan-500/10 to-blue-500/5 border-cyan-500/30 backdrop-blur-sm hover:border-cyan-500/50 transition-all h-full group cursor-pointer">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <Cloud className="w-5 h-5 text-cyan-400" />
-                  Space Weather
-                </CardTitle>
-                <CardDescription className="text-gray-400">
-                  Real-time solar activity monitoring
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="bg-black/20 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-gray-400">Solar Flare Activity</span>
-                      <Badge className="bg-green-500/20 text-green-400">NORMAL</Badge>
+              {/* Space Weather */}
+              <Link href="/dashboard/weather">
+                <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all group cursor-pointer">
+                  <CardHeader>
+                    <CardTitle className="text-gray-900 flex items-center gap-2">
+                      <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                        <Cloud className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">Space Weather</span>
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      Real-time solar activity monitoring
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 border border-blue-200">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm text-gray-600 font-medium">Solar Flare Activity</span>
+                          <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 shadow-sm">NORMAL</Badge>
+                        </div>
+                        <div className="h-16 flex items-end justify-between gap-1">
+                          {[3, 5, 4, 7, 6, 8, 7, 5, 4, 3, 2, 4].map((height, i) => (
+                            <div key={i} className="flex-1 bg-gradient-to-t from-cyan-500 to-blue-500 rounded-t shadow-sm" style={{ height: `${height * 8}%` }} />
+                          ))}
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">Kp-Index</span>
+                          <span className="text-gray-900 font-semibold">2.7</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">Geomagnetic Storm</span>
+                          <span className="text-emerald-600 font-semibold">None</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">X-Ray Flux</span>
+                          <span className="text-gray-900 font-semibold">C1.2</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="h-16 flex items-end justify-between gap-1">
-                      {[3, 5, 4, 7, 6, 8, 7, 5, 4, 3, 2, 4].map((height, i) => (
-                        <div key={i} className="flex-1 bg-cyan-500/30 rounded-t" style={{ height: `${height * 8}%` }} />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Kp-Index</span>
-                      <span className="text-white font-semibold">2.7</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Geomagnetic Storm</span>
-                      <span className="text-green-400 font-semibold">None</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">X-Ray Flux</span>
-                      <span className="text-white font-semibold">C1.2</span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Side - Live Satellite Map */}
+          <div className="lg:col-span-1">
+            <CommandCenterMap />
+          </div>
         </div>
 
         {/* Secondary Modules Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Module B: Ground Station Marketplace */}
           <Link href="/dashboard/marketplace">
-            <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/5 border-green-500/30 backdrop-blur-sm hover:border-green-500/50 transition-all group cursor-pointer">
+            <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all group cursor-pointer">
               <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <Radio className="w-5 h-5 text-green-400" />
-                  Ground Stations
+                <CardTitle className="text-gray-900 flex items-center gap-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                    <Radio className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Ground Stations</span>
                 </CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardDescription className="text-gray-600">
                   Book downlink slots worldwide
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">Available Stations</span>
-                    <span className="text-white font-bold">24</span>
+                    <span className="text-gray-600 text-sm font-medium">Available Stations</span>
+                    <span className="text-gray-900 font-bold">24</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">Next Booking</span>
-                    <span className="text-white font-semibold text-sm">14:30 UTC</span>
+                    <span className="text-gray-600 text-sm font-medium">Next Booking</span>
+                    <span className="text-gray-900 font-semibold text-sm">14:30 UTC</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">Revenue MTD</span>
-                    <span className="text-green-400 font-bold">$2,450</span>
+                    <span className="text-gray-600 text-sm font-medium">Revenue MTD</span>
+                    <span className="text-emerald-600 font-bold">$2,450</span>
                   </div>
-                  <Button className="w-full bg-green-500 hover:bg-green-600 text-white mt-2">
+                  <Button className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white mt-2 shadow-lg shadow-emerald-500/30">
                     Browse Marketplace →
                   </Button>
                 </div>
@@ -236,13 +256,15 @@ export default function NewDashboardPage() {
 
           {/* Module D: Insurance & Liability */}
           <Link href="/dashboard/analytics">
-            <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/5 border-purple-500/30 backdrop-blur-sm hover:border-purple-500/50 transition-all group cursor-pointer">
+            <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all group cursor-pointer">
               <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-purple-400" />
-                  Insurance Score
+                <CardTitle className="text-gray-900 flex items-center gap-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/30">
+                    <DollarSign className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Insurance Score</span>
                 </CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardDescription className="text-gray-600">
                   Dynamic risk assessment
                 </CardDescription>
               </CardHeader>
@@ -250,17 +272,17 @@ export default function NewDashboardPage() {
                 <div className="space-y-3">
                   <div className="relative h-32 flex items-center justify-center">
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-full border-8 border-purple-500/20"></div>
+                      <div className="w-24 h-24 rounded-full border-8 border-violet-200"></div>
                     </div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-full border-8 border-purple-500 border-t-transparent animate-spin" style={{ animationDuration: '3s' }}></div>
+                      <div className="w-24 h-24 rounded-full border-8 border-transparent border-t-violet-500 animate-spin" style={{ animationDuration: '3s' }}></div>
                     </div>
                     <div className="relative z-10 text-center">
-                      <p className="text-4xl font-bold text-white">94</p>
-                      <p className="text-xs text-gray-400">Safety Score</p>
+                      <p className="text-4xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">94</p>
+                      <p className="text-xs text-gray-600 font-medium">Safety Score</p>
                     </div>
                   </div>
-                  <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">
+                  <Button className="w-full bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white shadow-lg shadow-violet-500/30">
                     Generate API Key →
                   </Button>
                 </div>
@@ -270,32 +292,34 @@ export default function NewDashboardPage() {
 
           {/* Module: Blockchain Audit */}
           <Link href="/dashboard/security">
-            <Card className="bg-gradient-to-br from-emerald-500/10 to-teal-500/5 border-emerald-500/30 backdrop-blur-sm hover:border-emerald-500/50 transition-all group cursor-pointer">
+            <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all group cursor-pointer">
               <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <Lock className="w-5 h-5 text-emerald-400" />
-                  Blockchain Ledger
+                <CardTitle className="text-gray-900 flex items-center gap-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-lg shadow-teal-500/30">
+                    <Lock className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Blockchain Ledger</span>
                 </CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardDescription className="text-gray-600">
                   Immutable audit trails
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">Total Blocks</span>
-                    <span className="text-white font-bold">145,892</span>
+                    <span className="text-gray-600 text-sm font-medium">Total Blocks</span>
+                    <span className="text-gray-900 font-bold">145,892</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">Last Block</span>
-                    <span className="text-white font-semibold text-sm">2m ago</span>
+                    <span className="text-gray-600 text-sm font-medium">Last Block</span>
+                    <span className="text-gray-900 font-semibold text-sm">2m ago</span>
                   </div>
-                  <div className="bg-black/20 rounded p-2">
-                    <code className="text-xs text-emerald-400 font-mono">
+                  <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-lg p-2 border border-teal-200">
+                    <code className="text-xs text-teal-700 font-mono font-medium">
                       3a7bd3e2360a3d29...
                     </code>
                   </div>
-                  <Button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white mt-2">
+                  <Button className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white mt-2 shadow-lg shadow-teal-500/30">
                     View Audit Log →
                   </Button>
                 </div>
@@ -306,20 +330,20 @@ export default function NewDashboardPage() {
 
         {/* Classic Dashboard Access */}
         <div className="mt-8">
-          <Card className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-blue-500/30 backdrop-blur-sm">
+          <Card className="bg-white border-0 shadow-xl">
             <CardContent className="py-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                    <Globe className="w-6 h-6 text-blue-400" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
+                    <Globe className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold">Classic 3D Globe View</h3>
-                    <p className="text-sm text-gray-400">Real-time tracking of 64,000+ space objects</p>
+                    <h3 className="text-gray-900 font-semibold text-lg">Classic 3D Globe View</h3>
+                    <p className="text-sm text-gray-600">Real-time tracking of 64,000+ space objects</p>
                   </div>
                 </div>
                 <Link href="/dashboard/map">
-                  <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                  <Button className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white shadow-lg shadow-blue-500/30">
                     Launch Globe View →
                   </Button>
                 </Link>
