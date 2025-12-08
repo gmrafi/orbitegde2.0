@@ -213,6 +213,11 @@ export default function ChatPage() {
 
   const generateAIResponse = async (userMessage: string): Promise<string> => {
     try {
+      // Get user's full name from Clerk
+      const userFullName = user?.firstName && user?.lastName 
+        ? `${user.firstName} ${user.lastName}`
+        : user?.firstName || user?.lastName || null;
+
       // Call the Gemini API endpoint
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -221,7 +226,8 @@ export default function ChatPage() {
         },
         body: JSON.stringify({
           message: userMessage,
-          conversationHistory: messages.filter(m => m.sender !== 'ai' || m.id !== '1').slice(-10) // Last 10 messages for context
+          conversationHistory: messages.filter(m => m.sender !== 'ai' || m.id !== '1').slice(-10), // Last 10 messages for context
+          userFullName: userFullName // Pass user's full name for personalized greeting
         }),
       });
 

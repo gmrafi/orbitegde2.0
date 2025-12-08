@@ -49,7 +49,7 @@ OrbitEdge provides real-time tracking of 64,000+ satellites, collision risk anal
 
 export async function POST(req: Request) {
   try {
-    const { message, conversationHistory } = await req.json();
+    const { message, conversationHistory, userFullName } = await req.json();
 
     if (!message) {
       return NextResponse.json(
@@ -93,7 +93,13 @@ export async function POST(req: Request) {
     // Send message and get response
     const result = await chat.sendMessage(message);
     const response = await result.response;
-    const text = response.text();
+    let text = response.text();
+
+    // If this is the first user message (no previous conversation), add personalized greeting with user's name
+    const isFirstMessage = !conversationHistory || conversationHistory.length === 0;
+    if (isFirstMessage && userFullName) {
+      text = `Hello **${userFullName}**! I'm Sumaiya, an **AI assistant** here to help you with space commerce and satellite operations. While I'm inspired by a real professional, I'm an AI persona designed to provide accurate, educational guidance on LEO business, satellite tracking, orbital mechanics, and space industry insights.\n\n${text}`;
+    }
 
     return NextResponse.json({
       message: text,
